@@ -1,21 +1,28 @@
 
 package modelo;
 
+import java.time.LocalDate;
 
 public class Turno {
     private int id;
     private boolean tratamiento;
     private Paciente paciente;
+    private LocalDate fecha;
+    private Horario horario;
 
-    public Turno(int id, boolean tratamiento, Paciente paciente) {
+    public Turno(int id, boolean tratamiento, Paciente paciente, LocalDate fecha, Horario horario) {
         this.id = id;
         this.tratamiento = tratamiento;
         this.paciente = paciente;
+        this.fecha=fecha;
+        this.horario=horario;
     }
 
-    public Turno(boolean tratamiento, Paciente paciente) {
+    public Turno(boolean tratamiento, Paciente paciente, LocalDate fecha, Horario horario) {
         this.tratamiento = tratamiento;
         this.paciente = paciente;
+        this.fecha=fecha;
+        this.horario=horario;
     }
 
     public int getId() {
@@ -42,11 +49,30 @@ public class Turno {
         this.paciente = paciente;
     }
 
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
+
+    
+
     
     
     @Override
     public String toString() {
-        return "Turno{" + "id=" + id + ", tratamiento=" + tratamiento + ", paciente=" + paciente + '}';
+        return  "fecha:"+this.fecha +"    horario:"+this.horario+"    id del turno:" + this.id + "\n Paciente:" + this.paciente  + "\n es tratamiento:" + this.tratamiento;
     }
     
     
