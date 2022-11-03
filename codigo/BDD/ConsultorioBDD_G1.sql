@@ -71,28 +71,34 @@ insert into horario values(5, 3, "10:00", "12:00");
 insert into horario values(5, 4, "10:00", "12:00");
 insert into horario values(5, 5, "10:00", "12:00");
 
-
 /*Creamos las funciones y procedimientos a utilizar*/
 delimiter $$
 
+
+/*
+	Esta función busca el siguiente día laboral.
+	Toma por entrada el id del Odóntologo y el dia de la semana.
+	Si dicho día es uno donde el odontólogo trabaja, devuelve true.
+*/
 drop function if exists isDiaLaborable $$
 create function isDiaLaborable(idO int unsigned,diaIngresado int)
 	returns boolean
 begin
-	DECLARE done INT DEFAULT FALSE;
+	declare done boolean default false;
     declare isLaboral boolean;
     declare nDia int;
-	DECLARE cur1 CURSOR FOR SELECT diaSemana from horario where idOdontologo = idO;
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-	OPEN cur1;
-		WHILE done = FALSE DO
-			FETCH cur1 INTO nDia;
-			IF nDia = diaIngresado THEN
+	declare cur1 cursor for select diaSemana from horario where idOdontologo = idO;
+	/*Se declara un handler para verificar si el cursor terminó de recorrerse*/
+    declare continue HANDLER for not found set done = true;
+	open cur1;
+		while done = false do
+			fetch cur1 into nDia;
+			if nDia = diaIngresado then
 			  set isLaboral = true;
               set done = true;
-			END IF;
-		END WHILE;
-  CLOSE cur1;
+			end if;
+		end while;
+  close cur1;
   return isLaboral;
 end$$
 
@@ -102,7 +108,6 @@ drop function if exists fechaSiguiente $$
 create function fechaSiguiente(idO int unsigned,ultimoTurno date )
 	returns int 
 begin
-	/* Recomendación: Usar el idO (idOdontologo) para saber qué días trabaja y que días no */
 	declare nextFecha date;
 	declare diaUTurno int;
     declare diasTranscuridos int default 0;
@@ -110,23 +115,26 @@ begin
     declare  done boolean DEFAULT false;
 	set diaUTurno = date_format(ultimoTurno, "%w");
     set diaSemana = diaUTurno; 
-    
-    /*tengo que recorrer todos los dias desde el que termino hasta el primero que trabaje y contar cuantos dias pasaron para despues sumarselo al ultimoTurno*/
-    
+    /*
+		Se recorren todos los días hasta el primero donde le corresponda trabajar.
+		Luego se cuentan y se suman al últimoTurno para generar la nueva fecha.
+	*/
     while !done do 
 		set diaSemana = diaSemana + 1;
         set diasTranscuridos = diasTranscuridos + 1;
+		/*Se resetea la semana tras el día 6 (sábado)*/
 		if diaSemana > 6 then 
 			set diaSemana = 0;
 		end if;
+		/*Se llama a la función para comprobar el siguiente día de trabajo*/
         if isDiaLaborable(idO,diaSemana) then 
 			set done = true;
         end if;
 	end while;
-    
 	set nextFecha =  DATE_ADD(ultimoTurno, INTERVAL diasTranscuridos DAY) ;
 	return nextFecha;
 end$$
+
 
 /*Este procedimiento genera turnos a partir de la última fecha. Requiere la cantidad de días que deseamos y el ID del odontólogo*/
 drop procedure if exists generarTurnos$$
@@ -145,6 +153,7 @@ begin
 		if ultimoTurno is null then
 			set ultimoTurno = current_date();
 		end if;
+		/*Se llama a la función de fechaSiguiente para crear los turnos de cada día.*/
 		set fechaActual = fechaSiguiente(idO, ultimoTurno);
 		set horaIni = (select horaInicio from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		set horaMax = (select horaFin from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
