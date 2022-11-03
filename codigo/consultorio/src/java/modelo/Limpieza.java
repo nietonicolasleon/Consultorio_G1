@@ -16,9 +16,35 @@ public class Limpieza extends Tratamiento{
         this.isProfunda = isP;
     }
 
+    public boolean isIsProfunda() {
+        return isProfunda;
+    }
+
+    public void setIsProfunda(boolean isProfunda) {
+        this.isProfunda = isProfunda;
+    }
+
+    public String getNombreTratamiento() {
+        return nombreTratamiento;
+    }
+
+    public void setNombreTratamiento(String nombreTratamiento) {
+        this.nombreTratamiento = nombreTratamiento;
+    }
+
+    public LocalTime getDuracionTotal() {
+        return duracionTotal;
+    }
+
+    public void setDuracionTotal(LocalTime duracionTotal) {
+        this.duracionTotal = duracionTotal;
+    }
+    
+    
+
     @Override
     public String toString() {
-        return super.toString() + "\n es Profunda: " + isProfunda ;
+        return super.toString() + "\n es Profunda: " + this.isProfunda ;
     }
     
 

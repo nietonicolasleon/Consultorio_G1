@@ -16,6 +16,32 @@ public class Periodoncia extends Tratamiento {
         this.nivelSangrado = nS;
     }
 
+    public String getNivelSangrado() {
+        return nivelSangrado;
+    }
+
+    public void setNivelSangrado(String nivelSangrado) {
+        this.nivelSangrado = nivelSangrado;
+    }
+
+    public String getNombreTratamiento() {
+        return nombreTratamiento;
+    }
+
+    public void setNombreTratamiento(String nombreTratamiento) {
+        this.nombreTratamiento = nombreTratamiento;
+    }
+
+    public LocalTime getDuracionTotal() {
+        return duracionTotal;
+    }
+
+    public void setDuracionTotal(LocalTime duracionTotal) {
+        this.duracionTotal = duracionTotal;
+    }
+    
+    
+
     @Override
     public String toString() {
         return super.toString() + "\n nivel de Sangrado: " + nivelSangrado;

@@ -14,9 +14,9 @@ public class Turno {
 
     public Turno(int id, Tratamiento t, Paciente p, LocalDate f, LocalTime d, LocalTime hI) {
         this.id = id;
-        this.tratamiento = tratamiento;
-        this.paciente = paciente;
-        this.fecha=fecha;
+        this.tratamiento = t;
+        this.paciente = p;
+        this.fecha=f;
         this.duracion=d;
         this.horaIni=hI;
     }
