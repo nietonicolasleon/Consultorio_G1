@@ -2,27 +2,39 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Turno {
     private int id;
-    private boolean tratamiento;
+    private Tratamiento tratamiento;
     private Paciente paciente;
     private LocalDate fecha;
-    private Horario horario;
+    private LocalTime duracion;
+    private LocalTime horaIni;
 
-    public Turno(int id, boolean tratamiento, Paciente paciente, LocalDate fecha, Horario horario) {
+    public Turno(int id, Tratamiento t, Paciente p, LocalDate f, LocalTime d, LocalTime hI) {
         this.id = id;
         this.tratamiento = tratamiento;
         this.paciente = paciente;
         this.fecha=fecha;
-        this.horario=horario;
+        this.duracion=d;
+        this.horaIni=hI;
     }
 
-    public Turno(boolean tratamiento, Paciente paciente, LocalDate fecha, Horario horario) {
-        this.tratamiento = tratamiento;
-        this.paciente = paciente;
-        this.fecha=fecha;
-        this.horario=horario;
+    public Turno(Tratamiento t, Paciente p, LocalDate f, LocalTime d, LocalTime hI) {
+        this.tratamiento = t;
+        this.paciente = p;
+        this.fecha=f;
+        this.duracion=d;
+        this.horaIni=hI;
+    }
+    
+    public Turno(Tratamiento t, LocalDate f, LocalTime d, LocalTime hI){
+        this.tratamiento=t;
+        this.fecha=f;
+        this.duracion=d;
+        this.horaIni=hI;
+        
     }
 
     public int getId() {
@@ -33,11 +45,11 @@ public class Turno {
         this.id = id;
     }
 
-    public boolean isTratamiento() {
+    public Tratamiento getTratamiento() {
         return tratamiento;
     }
 
-    public void setTratamiento(boolean tratamiento) {
+    public void setTratamiento(Tratamiento tratamiento) {
         this.tratamiento = tratamiento;
     }
 
@@ -57,24 +69,29 @@ public class Turno {
         this.fecha = fecha;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public LocalTime getDuracion() {
+        return duracion;
     }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    public void setDuracion(LocalTime duracion) {
+        this.duracion = duracion;
     }
 
+    public LocalTime getHoraIni() {
+        return horaIni;
+    }
 
-    
+    public void setHoraIni(LocalTime horaIni) {
+        this.horaIni = horaIni;
+    }
 
-    
-    
     @Override
     public String toString() {
-        return  "fecha:"+this.fecha +"    horario:"+this.horario+"    id del turno:" + this.id + "\n Paciente:" + this.paciente  + "\n es tratamiento:" + this.tratamiento;
+        return  "tratamiento: \n" + this.tratamiento.toString() + "\n Paciente:" + this.toString() + "\n Fecha:" + this.fecha + "horaIni=" + this.horaIni+ "\n Duracion: " + this.duracion  ;
     }
+
     
+
     
     
     
