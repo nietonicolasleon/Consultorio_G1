@@ -3,7 +3,7 @@ drop database if exists consultorio;
 create database consultorio;
 use consultorio;
 
-/*Se crean las tablas que serán utilizadas*/
+/*Se crean las tablas que serÃ¡n utilizadas*/
 create table odontologo(
 	idOdontologo int unsigned not null,
 	apellido varchar(30),
@@ -43,7 +43,7 @@ create table turno(
 	foreign key(idOdontologo) references horario(idOdontologo)
 );
 
-/*Se insertan los valores de los odontólogos y sus respectivos horarios*/
+/*Se insertan los valores de los odontÃ³logos y sus respectivos horarios*/
 insert into odontologo values(1, "Vasquez", "Edmundo", "46343", "vasquezdrmundolol@mail.com");
 insert into odontologo values(2, "Van Bothoven", "Ludwig", "27482", "drludwigvanbothoventf2@mail.com");
 insert into odontologo values(3, "Taylor", "Roger", "78336", "drrogerqueentaylor@mail.com");
@@ -76,9 +76,9 @@ delimiter $$
 
 
 /*
-	Esta función busca el siguiente día laboral.
-	Toma por entrada el id del Odóntologo y el dia de la semana.
-	Si dicho día es uno donde el odontólogo trabaja, devuelve true.
+	Esta funciÃ³n busca el siguiente dÃ­a laboral.
+	Toma por entrada el id del OdÃ³ntologo y el dia de la semana.
+	Si dicho dÃ­a es uno donde el odontÃ³logo trabaja, devuelve true.
 */
 drop function if exists isDiaLaborable $$
 create function isDiaLaborable(idO int unsigned,diaIngresado int)
@@ -88,7 +88,7 @@ begin
     declare isLaboral boolean;
     declare nDia int;
 	declare cur1 cursor for select diaSemana from horario where idOdontologo = idO;
-	/*Se declara un handler para verificar si el cursor terminó de recorrerse*/
+	/*Se declara un handler para verificar si el cursor terminÃ³ de recorrerse*/
     declare continue HANDLER for not found set done = true;
 	open cur1;
 		while done = false do
@@ -103,7 +103,7 @@ begin
 end$$
 
 
-/*Esta función devuelve la siguiente fecha que corresponda a cada odontólogo, teniendo en cuenta cuáles son los días de semana en los que trabaja.*/
+/*Esta funciÃ³n devuelve la siguiente fecha que corresponda a cada odontÃ³logo, teniendo en cuenta cuÃ¡les son los dÃ­as de semana en los que trabaja.*/
 drop function if exists fechaSiguiente $$
 create function fechaSiguiente(idO int unsigned,ultimoTurno date )
 	returns int 
@@ -116,17 +116,17 @@ begin
 	set diaUTurno = date_format(ultimoTurno, "%w");
     set diaSemana = diaUTurno; 
     /*
-		Se recorren todos los días hasta el primero donde le corresponda trabajar.
-		Luego se cuentan y se suman al últimoTurno para generar la nueva fecha.
+		Se recorren todos los dÃ­as hasta el primero donde le corresponda trabajar.
+		Luego se cuentan y se suman al ÃºltimoTurno para generar la nueva fecha.
 	*/
     while !done do 
 		set diaSemana = diaSemana + 1;
         set diasTranscuridos = diasTranscuridos + 1;
-		/*Se resetea la semana tras el día 6 (sábado)*/
+		/*Se resetea la semana tras el dÃ­a 6 (sÃ¡bado)*/
 		if diaSemana > 6 then 
 			set diaSemana = 0;
 		end if;
-		/*Se llama a la función para comprobar el siguiente día de trabajo*/
+		/*Se llama a la funciÃ³n para comprobar el siguiente dÃ­a de trabajo*/
         if isDiaLaborable(idO,diaSemana) then 
 			set done = true;
         end if;
@@ -136,7 +136,7 @@ begin
 end$$
 
 
-/*Este procedimiento genera turnos a partir de la última fecha. Requiere la cantidad de días que deseamos y el ID del odontólogo*/
+/*Este procedimiento genera turnos a partir de la Ãºltima fecha. Requiere la cantidad de dÃ­as que deseamos y el ID del odontÃ³logo*/
 drop procedure if exists generarTurnos$$
 create procedure generarTurnos(in cantDias int, in idO int unsigned)
 begin
@@ -153,7 +153,7 @@ begin
 		if ultimoTurno is null then
 			set ultimoTurno = current_date();
 		end if;
-		/*Se llama a la función de fechaSiguiente para crear los turnos de cada día.*/
+		/*Se llama a la funciÃ³n de fechaSiguiente para crear los turnos de cada dÃ­a.*/
 		set fechaActual = fechaSiguiente(idO, ultimoTurno);
 		set horaIni = (select horaInicio from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		set horaMax = (select horaFin from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
