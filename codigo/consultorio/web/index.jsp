@@ -8,5 +8,12 @@
 
 
 <%@include file="pages/header.jsp" %>
-<h1>Hello Worldaaaapruebaaaaa!</h1>
+<%@include file="pages/headerMenu.jsp" %>
+<div class="container">
+    <%@include file="pages/registro.jsp" %>
+</div>
+<div class="container">
+    <%@include file="pages/tablaTurnos.jsp" %>
+</div>
+
 <%@include file="pages/footer.jsp" %>
