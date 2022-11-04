@@ -5,7 +5,8 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="modelo.Agenda"%>
+<%@page import="modelo.*"%>
+<%@page import="datos.accesoDatos"%>
 <table class="table table-striped table-hover">
   <thead class="table-dark">
     <tr>
@@ -20,46 +21,28 @@
   <tbody class="table-group-divider">
       
     <%
-        ArrayList<Agenda> agendas = new ArrayList();
+        accesoDatos a1 = new accesoDatos();
+        ArrayList<Agenda> agendas = a1.getAgendas();
         int cont = 1;
         
         for(Agenda a : agendas){
-            int contTurno = 0;
-            int contHorario = 0;
-             for(cont){ ..... //falta completar otro for 
-                
-            %>
-            <th scope="row"><%= cont++ %></th>
-            <td><%= a.getTurnos().get(contTurno).getFecha() %></td>
-            <td><%= a.getTurnos().get(contTurno++).getHoraIni() %></td>
-            <td><%= a.getHorarios().get(contHorario).getOdontologo().getNombre() + " " 
-                    + a.getHorarios().get(contHorario++).getOdontologo().getApellido() %></td>
-            <td>
-                <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-            </td>
-                
-            <%
-                
+            Odontologo odontologo = a.getHorarios().get(0).getOdontologo();
+            for(Turno turno : a.getTurnos()){
+                %>
+                    <tr>
+                        <th scope="row"><%= cont++ %></th>
+                        <td><%= turno.getFecha() %></td> <!--fecha -->
+                        <td><%= turno.getHoraIni() %></td> <!--hora inicio -->
+                        <td><%= odontologo.getNombre() + " " + odontologo.getApellido() %></td> <!--nombre odontologo -->
+                        <td>
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                        </td>
+                    <tr>
+                <%
+            }
+                 
         }
     %>
-    <tr>
-      <th scope="row">1</th>
-      <td>04/11/2022</td>
-      <td>12:00</td>
-      <td>Roberto Mandela</td>
-      <td>
-          <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>05/11/2022</td>
-      <td>10:00</td>
-      <td>Mirta Billarita</td>
-      <td>
-          <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-      </td>
-    </tr>
     
   </tbody>
 </table>
