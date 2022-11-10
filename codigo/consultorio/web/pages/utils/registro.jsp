@@ -1,13 +1,12 @@
 
 <%
-
+/*
+    Esta parte va pegada en donde se este usando el registro para captar el output
 String nombre = request.getParameter("nombre");
 String apellido = request.getParameter("apellido");
 String dni = request.getParameter("dni");
 String email = request.getParameter("email");
-
-
-
+*/
 
 %>
 
@@ -15,7 +14,7 @@ String email = request.getParameter("email");
 
 
 <div class="card card-body">
-    <form action="" method="POST">
+    <form action="" id="formRegistro" method="POST">
     <h4>REGISTRO</h4>
   <div class="mb-3">
     <label class="form-label">Nombre</label>
@@ -34,13 +33,6 @@ String email = request.getParameter("email");
     <input type="email" name="email" class="form-control" required>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  
-  <p>
-      <%= nombre %>
-      <%= apellido %>
-      <%= dni %>
-      <%= email %>
-  </p>
 </form>
 </div>
 

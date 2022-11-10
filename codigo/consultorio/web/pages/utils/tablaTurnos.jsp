@@ -7,6 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.*"%>
 <%@page import="datos.accesoDatos"%>
+
 <table class="table table-striped table-hover">
   <thead class="table-dark">
     <tr>
@@ -14,7 +15,7 @@
       <th scope="col">Fecha</th>
       <th scope="col">Hora</th>
       <th scope="col">Odontologo</th>
-      <th scope="col">Acciones</th>
+      <th scope="col">Reservar</th>
       
     </tr>
   </thead>
