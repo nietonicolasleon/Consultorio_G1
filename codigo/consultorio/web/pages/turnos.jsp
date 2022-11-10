@@ -23,17 +23,27 @@
             <%
         }
     %>
-    
-    <div class="containes mt-2 cont-cli">
-        <div class="cont">
-
-        </div>
-    </div>
+   
     
     <%//valido que este registrado y recien ahi muestro los turnos disponibles
         if(dni != null ){
             register = true;
             %>
+                <div class="containes mt-2 cont-cli">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="cont">
+                        <%=nombre%>
+                    </div>
+                    <div class="cont">
+                        <%=apellido%>
+                    </div>
+                    <div class="cont">
+                        <%=dni%>
+                    </div>
+                    <div class="cont">
+                        <%=email%>
+                    </div>
+                </div>
                 <div class="container mt-4">
                     <%@include file="utils/tablaTurnos.jsp"%>
                 </div>
