@@ -1,20 +1,8 @@
 
-<%
-/*
-    Esta parte va pegada en donde se este usando el registro para captar el output
-String nombre = request.getParameter("nombre");
-String apellido = request.getParameter("apellido");
-String dni = request.getParameter("dni");
-String email = request.getParameter("email");
-*/
 
-%>
-
-
-
-
+<%@page import="controlador.servlets.registrar" %>
 <div class="card card-body">
-    <form action="" id="formRegistro" method="POST">
+    <form action="registrar"  method="POST">
     <h4>REGISTRO</h4>
   <div class="mb-3">
     <label class="form-label">Nombre</label>
