@@ -35,7 +35,7 @@ create table turno(
 	idTurno int unsigned auto_increment,
 	idPaciente int unsigned,
 	idOdontologo int unsigned not null,
-	isTratamiento boolean,
+	tratamiento varchar(50),
 	fecha date,
 	hora time,
 	primary key(idTurno),
@@ -158,7 +158,7 @@ begin
 		set horaIni = (select horaInicio from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		set horaMax = (select horaFin from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		while horaIni < horaMax do
-			insert into turno(idOdontologo, isTratamiento, fecha, hora) values(idO, false, fechaActual, horaIni);
+			insert into turno(idOdontologo, tratamiento, fecha, hora) values(idO, "Consulta", fechaActual, horaIni);
 			set horaIni = addtime(horaIni, durTurno);
 		end while;
 		set contador = contador + 1;
