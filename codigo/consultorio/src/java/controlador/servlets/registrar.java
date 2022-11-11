@@ -34,7 +34,7 @@ public class registrar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            
-             String nombre = request.getParameter("nombre");
+            String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String dni = request.getParameter("dni");
             String email = request.getParameter("email");
@@ -42,8 +42,9 @@ public class registrar extends HttpServlet {
             Paciente paciente = new Paciente(nombre,apellido,dni,email);
             bddPaciente.addPaciente(paciente);
             request.setAttribute("bddPaciente",paciente);
-            request.getRequestDispatcher("/pages/turnos.jsp");
-            out.print("holaaaaa");
+            request.getRequestDispatcher("/pages/turnos.jsp").forward(request, response);
+            
+            
         }
     }
 

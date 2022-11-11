@@ -7,11 +7,11 @@
 --%>
 
 
-<%@include file="pages/header.jsp" %>
-<%@include file="pages/headerMenu.jsp" %>
+<%@include file="pages/utils/header.jsp" %>
+<%@include file="pages/utils/headerMenu.jsp" %>
 
 <div class="container">
    
 </div>
 
-<%@include file="pages/footer.jsp" %>
+<%@include file="pages/utils/footer.jsp" %>

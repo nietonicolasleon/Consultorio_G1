@@ -1,6 +1,10 @@
 
+<%@include file="header.jsp" %>
+<%@include file="headerMenu.jsp"%>
+
 
 <%@page import="controlador.servlets.registrar" %>
+
 <div class="card card-body">
     <form action="registrar"  method="POST">
     <h4>REGISTRO</h4>
@@ -24,6 +28,7 @@
 </form>
 </div>
 
+<%@include file="footer.jsp" %>
 
 
 

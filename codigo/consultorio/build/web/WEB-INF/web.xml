@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>registrar</servlet-name>
-        <url-pattern>/registrar</url-pattern>
+        <url-pattern>/pages/registrar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
