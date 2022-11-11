@@ -39,6 +39,30 @@ public class Agenda {
         }
         return aux;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(ArrayList<Turno> turnos) {
+        this.turnos = turnos;
+    }
+
+    public ArrayList<Horario> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(ArrayList<Horario> horarios) {
+        this.horarios = horarios;
+    }
     
     @Override
     public String toString(){
