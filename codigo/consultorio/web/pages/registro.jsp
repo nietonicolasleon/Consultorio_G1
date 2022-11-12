@@ -1,12 +1,13 @@
-
-<%@include file="header.jsp" %>
-<%@include file="headerMenu.jsp"%>
-
-
-<%@page import="controlador.servlets.registrar" %>
-
-<div class="card card-body">
-    <form action="registrar"  method="POST">
+<%-- 
+    Document   : registro
+    Created on : 12 nov. 2022, 01:44:02
+    Author     : dylan
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="utils/headerMenu.jsp" %>
+<div class="container m-5">
+    <div class="card card-body">
+    <form action="registrar"  method="post">
     <h4>REGISTRO</h4>
   <div class="mb-3">
     <label class="form-label">Nombre</label>
@@ -27,8 +28,7 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+    
+</div>
 
-<%@include file="footer.jsp" %>
-
-
-
+<%@include file="utils/footer.jsp" %>

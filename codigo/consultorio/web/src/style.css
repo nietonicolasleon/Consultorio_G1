@@ -22,6 +22,31 @@
     font-size: 30px;
 }
 
-.container {
 
+.containerInicio{
+    width: 60% !important;
+    margin:  auto;
+    margin-top:30px;
+    border: 1px rgba(45, 45, 45, 0.267) solid;
+    border-radius:15px;
+    padding:15px !important;
+    box-shadow: 0 0 20px rgba(54, 54, 54, 0.299);
+}
+
+.btnIniciar{
+    width:5rem ; 
+}
+
+.contIntegrantes{
+    text-align:left !important; 
+    width: 60% ;
+    margin:  auto;
+    padding:15px !important;
+
+}
+
+.contenedortextoExplicativo{
+    width: 60%;
+    margin: auto;
+    text-align: center;
 }

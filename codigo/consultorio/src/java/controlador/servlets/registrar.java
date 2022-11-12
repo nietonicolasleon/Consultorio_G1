@@ -33,16 +33,17 @@ public class registrar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+            out.print("Pruebaaaaaa");
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String dni = request.getParameter("dni");
             String email = request.getParameter("email");
-            BddPaciente bddPaciente = new BddPaciente();
-            Paciente paciente = new Paciente(nombre,apellido,dni,email);
-            bddPaciente.addPaciente(paciente);
-            request.setAttribute("bddPaciente",paciente);
-            request.getRequestDispatcher("/pages/turnos.jsp").forward(request, response);
+            Paciente paciente = new Paciente(nombre,apellido,email,dni);
+            //crear aca codigo para validar si este paciente ya existe o tiene que crearlo en caso de no existir
+            request.setAttribute("attPaciente", paciente);
+            request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
+            
+           
             
             
         }

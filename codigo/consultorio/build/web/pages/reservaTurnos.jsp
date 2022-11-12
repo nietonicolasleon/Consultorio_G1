@@ -5,34 +5,36 @@
 
 
 
-<div class="container mt-5">
+<div class="container mt-4">
     <%
-        Paciente bddPaciente = (Paciente)request.getAttribute("bddPaciente");
+        Paciente attPaciente = (Paciente)request.getAttribute("attPaciente");
        //cargo y vaido que este registrado
-        if(bddPaciente == null){
-            response.sendRedirect("/pages/registro.jsp");
+        if(attPaciente == null){
+            response.sendRedirect("/consultorio/pages/registro.jsp");
         }
-       
-
     %>
-        <div class="containes mt-2 cont-cli">
+    <div class="contenedortextoExplicativo ">
+        <p class="contenedortextoExplicativo">Seleccione el turno deseado para <span class="font-weight-bold">reservarlo</span></p>
+    </div>
+    <div class="containes mt-1 cont-cli">
             <i class="fa-solid fa-user"></i>
             <div class="cont">
-                <%= bddPaciente.getNombre() %>
+                <%= attPaciente.getNombre() %>
             </div>
             <div class="cont">
-                <%=bddPaciente.getApellido()%>
+                <%=attPaciente.getApellido()%>
             </div>
             <div class="cont">
-                <%=bddPaciente.getDni()%>
+                <%=attPaciente.getDni()%>
             </div>
             <div class="cont">
-                <%=bddPaciente.getMail()%>
+                <%=attPaciente.getMail()%>
             </div>
         </div>
         <div class="container mt-4">
             <%@include file="utils/tablaTurnos.jsp"%>
         </div>
+       
            
     
 </div>
