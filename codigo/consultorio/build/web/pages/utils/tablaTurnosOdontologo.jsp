@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody class="table-group-divider">
-   
+      
     <%
         accesoDatos a1 = new accesoDatos();
         ArrayList<Agenda> agendas = a1.getAgendas();
@@ -36,7 +36,8 @@
                         <td><%= turno.getHoraIni() %></td> <!--hora inicio -->
                         <td><%= odontologo.getNombre() + " " + odontologo.getApellido() %></td> <!--nombre odontologo -->
                         <td>
-                            <a href="reservarTurno?id=<%=turno.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                            <button type="submit"  value="<%= turno%>" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                        
                         </td>
                     <tr>
                 <%

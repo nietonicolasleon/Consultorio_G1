@@ -1,5 +1,4 @@
 
-<%@include file="utils/header.jsp" %>
 <%@include file="utils/headerMenu.jsp" %>
 <%@page import="modelo.*" %>
 
