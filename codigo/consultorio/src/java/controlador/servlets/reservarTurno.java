@@ -47,11 +47,10 @@ public class reservarTurno extends HttpServlet {
             BddOdontologo bddOdontologo = new BddOdontologo();
             Odontologo attOdontologo = bddOdontologo.getOdontologoById(idOdontologo);
             
-            BddPaciente bddPaciente = new BddPaciente();
-            Paciente attPaciente = bddPaciente.getPacienteById(idPaciente);
+            PacienteDAO pDAO = new PacienteDAO();
+            Paciente attPaciente = pDAO.getPacienteById(idPaciente);
             
-           
-            
+
             
             //codigo para modificar el turno y cargar los datos del paciente, odontologo 
 

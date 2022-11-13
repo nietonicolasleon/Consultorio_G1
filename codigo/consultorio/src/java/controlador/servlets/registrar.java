@@ -5,7 +5,6 @@
  */
 package controlador.servlets;
 
-import controlador.bdd.BddPaciente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,18 +39,19 @@ public class registrar extends HttpServlet {
             String apellido = request.getParameter("apellido");
             String dni = request.getParameter("dni");
             String email = request.getParameter("email");
-            Paciente paciente = new Paciente(nombre,apellido,email,dni);
+            Paciente paciente = new Paciente(nombre,apellido,dni,email);
             //crear aca codigo para validar si este paciente ya existe o tiene que crearlo en caso de no existir
             
+            PacienteDAO pDAO = new PacienteDAO();
+            pDAO.insertar(paciente); 
+            Paciente attPaciente = pDAO.getPacienteByDni(paciente.getDni());
+            out.print(attPaciente.getId());
             
-            BddPaciente bddPaciente = new BddPaciente();
-            Paciente attPaciente = bddPaciente.getPacienteByDni(paciente.getDni());
             //devolver el paciente a la pagina de reservaTurnos.jsp
             request.setAttribute("attPaciente", attPaciente);
             request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
             
-           
-            
+
             
         }
     }

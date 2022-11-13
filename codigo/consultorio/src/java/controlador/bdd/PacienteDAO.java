@@ -14,7 +14,7 @@ import modelo.Paciente;
 public class PacienteDAO {
 
     private static final String SQL_SELECT = "SELECT idPaciente, nombre, apellido, dni, mail FROM paciente";
-    private static final String SQL_INSERT = "INSERT INTO paciente(idPaciente,nombre,apellido,dni,mail) VALUES (?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO paciente(nombre,apellido,dni,mail) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE paciente SET idPaciente = ? , nombre = ? , apellido =  ? , dni = ?, mail = ? WHERE idPaciente = ?";
     private static final String SQL_DELETE = "DELETE FROM paciente WHERE idPaciente = ?";
 
@@ -35,7 +35,7 @@ public class PacienteDAO {
                 String apellido = rs.getString("apellido");
                 String dni = rs.getString("dni");
                 String mail = rs.getString("mail");
-                paciente = new Paciente(idPaciente, dni, nombre, apellido, mail);
+                paciente = new Paciente(idPaciente, nombre, apellido, dni, mail);
                 pacientes.add(paciente);
             }
         } catch (SQLException ex) {
@@ -60,11 +60,10 @@ public class PacienteDAO {
         try {
             con = getConnection();
             stmt = con.prepareStatement(SQL_INSERT);
-            stmt.setInt(1, paciente.getId());
-            stmt.setString(2, paciente.getNombre());
-            stmt.setString(3, paciente.getApellido());
-            stmt.setString(4, paciente.getDni());
-            stmt.setString(5, paciente.getMail());
+            stmt.setString(1, paciente.getNombre());
+            stmt.setString(2, paciente.getApellido());
+            stmt.setString(3, paciente.getDni());
+            stmt.setString(4, paciente.getMail());
             registros = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -132,4 +131,23 @@ public class PacienteDAO {
 
         return registros;
     }
+    
+    
+    public Paciente getPacienteByDni(String dni) {
+        for (Paciente p: this.seleccionar()){
+            if(dni.equals(p.getDni())){
+                return p;
+            }
+        }
+        return null;
+    }
+    public Paciente getPacienteById(int id) {
+        for (Paciente p: this.seleccionar()){
+            if(id == p.getId()){
+                return p;
+            }
+        }
+        return null;
+    }
+    
 }
