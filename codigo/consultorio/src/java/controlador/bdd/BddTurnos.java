@@ -4,6 +4,7 @@
  */
 package controlador.bdd;
 
+import controlador.bdd.modelo.TurnoBdd;
 import modelo.*;
 import datos.accesoDatos;
 /**
@@ -12,9 +13,9 @@ import datos.accesoDatos;
  */
 public class BddTurnos {
     accesoDatos acc = new accesoDatos();
-    public Turno getTurnoById(int id) {
+    public TurnoBdd getTurnoById(int id) {
         for(Agenda agenda:acc.getAgendas()){
-            for(Turno turno: agenda.getTurnos()){
+            for(TurnoBdd turno: agenda.getTurnos()){
                 if(turno.getId()==id){
                     return turno;
                 }
