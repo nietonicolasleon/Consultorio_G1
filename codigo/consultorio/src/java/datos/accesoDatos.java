@@ -16,8 +16,8 @@ import modelo.*;
  */
 public class accesoDatos {
     
-    Odontologo o1 = new Odontologo("Pedro","parques","pedroparques@gmail.com","M12345");
-    Odontologo o2 = new Odontologo("Sofia","Ramirez","sofiaramirez@gmail.com","M54321");
+    Odontologo o1 = new Odontologo(0,"Pedro","parques","pedroparques@gmail.com","M12345");
+    Odontologo o2 = new Odontologo(1,"Sofia","Ramirez","sofiaramirez@gmail.com","M54321");
     
     Horario h1 = new Horario(o1, LocalTime.of(9, 0),LocalTime.of(12, 0),1);
     Horario h2 = new Horario(o1, LocalTime.of(9, 0),LocalTime.of(12, 0),2);
@@ -37,6 +37,10 @@ public class accesoDatos {
     Agenda a1 = new Agenda();
     Agenda a2 = new Agenda();
     
+    Paciente p1 = new Paciente(1,"Dylan", "Seltzer", "Dylanseltzer@gmail.com", "12345");
+    Paciente p2 = new Paciente(1,"Nicolas", "Nieto", "NicoNieto@gmail.com", "54321");
+    
+    
     public accesoDatos(){
         a1.addHorario(h1);
         a1.addHorario(h2);
@@ -53,5 +57,12 @@ public class accesoDatos {
         a.add(a1);
         a.add(a2);
         return a;
+    }
+    
+    public ArrayList<Paciente> getPacientes(){
+        ArrayList<Paciente> pacientes= new ArrayList();
+        pacientes.add(p1);
+        pacientes.add(p2);
+        return pacientes;
     }
 }

@@ -34,11 +34,31 @@ public class reservarTurno extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int id = Integer.parseInt(request.getParameter("id"));
-            out.print(id);
+            //recupero los datos del get y los desestructuro
+            String[] date = request.getParameter("date").split(",");
+            int idTurno = Integer.parseInt(date[0]);
+            int idOdontologo = Integer.parseInt(date[1]);
+            int idPaciente = Integer.parseInt(date[2]);
+            
+           
             BddTurnos bddTurnos = new BddTurnos();
-            Turno attTurno = bddTurnos.getTurnoById(id);
+            Turno attTurno = bddTurnos.getTurnoById(idTurno);
+            
+            BddOdontologo bddOdontologo = new BddOdontologo();
+            Odontologo attOdontologo = bddOdontologo.getOdontologoById(idOdontologo);
+            
+            BddPaciente bddPaciente = new BddPaciente();
+            Paciente attPaciente = bddPaciente.getPacienteById(idPaciente);
+            
+           
+            
+            
+            //codigo para modificar el turno y cargar los datos del paciente, odontologo 
+
             out.print(attTurno.getFecha());
+            out.print(attOdontologo.getNombre());
+            out.print(attPaciente.getNombre());
+           
         }
     }
 

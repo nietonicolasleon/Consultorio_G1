@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Paciente;
+import controlador.bdd.*;
+import datos.accesoDatos;
 
 /**
  *
@@ -40,7 +42,12 @@ public class registrar extends HttpServlet {
             String email = request.getParameter("email");
             Paciente paciente = new Paciente(nombre,apellido,email,dni);
             //crear aca codigo para validar si este paciente ya existe o tiene que crearlo en caso de no existir
-            request.setAttribute("attPaciente", paciente);
+            
+            
+            BddPaciente bddPaciente = new BddPaciente();
+            Paciente attPaciente = bddPaciente.getPacienteByDni(paciente.getDni());
+            //devolver el paciente a la pagina de reservaTurnos.jsp
+            request.setAttribute("attPaciente", attPaciente);
             request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
             
            
