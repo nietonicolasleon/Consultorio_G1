@@ -5,7 +5,7 @@ use consultorio;
 
 /*Se crean las tablas que serán utilizadas*/
 create table odontologo(
-	idOdontologo int unsigned not null,
+	idOdontologo int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
 	matricula varchar(20),
@@ -14,12 +14,12 @@ create table odontologo(
 );
 
 create table paciente(
-	idPaciente int unsigned,
+	idPaciente int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
 	dni varchar(10),
 	mail varchar(50),
-	primary key(idPaciente)
+	primary key(idPaciente, dni)
 );
 
 create table horario(
@@ -31,16 +31,25 @@ create table horario(
 	foreign key(idOdontologo) references odontologo(idOdontologo)
 );
 
+create table tratamiento(
+	idTratamiento int unsigned not null,
+	nombre varchar(30),
+	duracion time,
+	descripcion varchar(100),
+	primary key(idTratamiento)
+);
+
 create table turno(
-	idTurno int unsigned auto_increment,
-	idPaciente int unsigned,
+	idTurno int unsigned auto_increment not null,
+	idPaciente int unsigned not null,
 	idOdontologo int unsigned not null,
-	tratamiento varchar(50),
+	idTratamiento int unsigned not null,
 	fecha date,
 	hora time,
 	primary key(idTurno),
 	foreign key(idPaciente) references paciente(idPaciente),
-	foreign key(idOdontologo) references horario(idOdontologo)
+	foreign key(idOdontologo) references horario(idOdontologo),
+	foreign key(idTratamiento) references tratamiento(idTratamiento)
 );
 
 /*Se insertan los valores de los odontólogos y sus respectivos horarios*/
