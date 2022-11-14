@@ -35,7 +35,6 @@ create table tratamiento(
 	idTratamiento int unsigned not null,
 	nombre varchar(30),
 	duracion time,
-	descripcion varchar(100),
 	datos varchar(50),
 	primary key(idTratamiento)
 );
@@ -44,7 +43,7 @@ create table turno(
 	idTurno int unsigned auto_increment not null,
 	idPaciente int unsigned not null,
 	idOdontologo int unsigned not null,
-	idTratamiento int unsigned not null,
+	idTratamiento int unsigned,
 	fecha date,
 	hora time,
 	primary key(idTurno),
