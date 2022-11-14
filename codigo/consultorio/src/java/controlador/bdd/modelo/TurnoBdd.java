@@ -2,28 +2,28 @@
 package controlador.bdd.modelo;
 
 import java.sql.Date;
+import modelo.Tratamiento;
 
 public class TurnoBdd {
    
     
-    private int idTurno,idPaciente,idOdontologo;
-    private boolean isTratamiento;
+    private int idTurno,idPaciente,idOdontologo, idTratamiento;
     private Date fecha, hora;
 
-    public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, boolean isTratamiento, Date fecha, Date hora) {
+    public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, Date fecha, Date hora) {
         this.idTurno = idTurno;
         this.idPaciente = idPaciente;
         this.idOdontologo = idOdontologo;
-        this.isTratamiento = isTratamiento;
+        this.idTratamiento = idT;
         this.fecha = fecha;
         this.hora = hora;
     }
     
-        public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, boolean isTratamiento, java.util.Date fecha, java.util.Date hora) {
+        public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, java.util.Date fecha, java.util.Date hora) {
         this.idTurno = idTurno;
         this.idPaciente = idPaciente;
         this.idOdontologo = idOdontologo;
-        this.isTratamiento = isTratamiento;
+        this.idTratamiento = idT;
         this.fecha = (Date) fecha;
         this.hora = (Date) hora;
     }
@@ -54,12 +54,12 @@ public class TurnoBdd {
         this.idOdontologo = idOdontologo;
     }
 
-    public boolean isIsTratamiento() {
-        return isTratamiento;
+    public int getIdTratamiento() {
+        return idTratamiento;
     }
 
-    public void setIsTratamiento(boolean isTratamiento) {
-        this.isTratamiento = isTratamiento;
+    public void setIdTratamiento(int idTratamiento) {
+        this.idTratamiento = idTratamiento;
     }
 
     public Date getFecha() {

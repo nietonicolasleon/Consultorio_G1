@@ -14,7 +14,7 @@ import modelo.Turno;
  * @author dylan
  */
 public class BddOdontologo {
-     accesoDatos acc = new accesoDatos();
+    accesoDatos acc = new accesoDatos();
     public Odontologo getOdontologoById(int id) {
         for(Agenda agenda:acc.getAgendas()){
             Odontologo o = agenda.getHorarios().get(0).getOdontologo();
@@ -22,6 +22,6 @@ public class BddOdontologo {
                 return o;
             }
         }
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

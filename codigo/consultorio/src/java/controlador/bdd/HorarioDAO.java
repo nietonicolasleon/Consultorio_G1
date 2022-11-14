@@ -5,22 +5,21 @@ import controlador.bdd.modelo.HorarioBdd;
 import static controlador.bdd.Conexion.*;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import modelo.*;
 
 public class HorarioDAO {
 
-    private static final String SQL_SELECT = "SELECT idOdontologo, diaSemana, horaInicio, horaFin hora FROM horario";
+    private static final String SQL_SELECT = "SELECT idOdontologo, diaSemana, horaInicio, horaFin FROM horario";
     private static final String SQL_INSERT = "INSERT INTO horario(idOdontologo, diaSemana, horaInicio, horaFin) VALUES (?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE turno SET idOdontologo = ? , diaSemana = ? , horaInicio = ?, horaFin = ? WHERE idOdontolog = ?";
-    private static final String SQL_DELETE = "DELETE FROM turno WHERE idOdontologo = ?";
+    private static final String SQL_UPDATE = "UPDATE horario SET idOdontologo = ? , diaSemana = ? , horaInicio = ?, horaFin = ? WHERE idOdontologo = ?";
+    private static final String SQL_DELETE = "DELETE FROM horario WHERE idOdontologo = ?";
 
-    public List<HorarioBdd> seleccionar() {
+    public ArrayList<HorarioBdd> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         TurnoBdd turno = null;
-        List<HorarioBdd> horarios = new ArrayList<>();
+        ArrayList<HorarioBdd> horarios = new ArrayList();
 
         try {
             con = Conexion.getConnection();

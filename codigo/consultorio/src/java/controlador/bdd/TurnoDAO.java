@@ -5,22 +5,21 @@ import static controlador.bdd.Conexion.*;
 import controlador.bdd.modelo.TurnoBdd;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import modelo.Turno;
 
 public class TurnoDAO {
 
-    private static final String SQL_SELECT = "SELECT idTurno, idPaciente, idOdontologo, isTratamiento, fecha, hora FROM turno";
-    private static final String SQL_INSERT = "INSERT INTO turno(idPaciente,idOdontologo,isTratamiento,fecha,hora) VALUES (?,?,?,?,?);";
-    private static final String SQL_UPDATE = "UPDATE turno SET isTratamiento = ? , fecha = ? , hora = ? WHERE idTurno = ?";
+    private static final String SQL_SELECT = "SELECT idTurno, idPaciente, idOdontologo, idTratamiento, fecha, hora FROM turno";
+    private static final String SQL_INSERT = "INSERT INTO turno(idPaciente,idOdontologo,idTratamiento,fecha,hora) VALUES (?,?,?,?,?);";
+    private static final String SQL_UPDATE = "UPDATE turno SET idTratamiento = ? , fecha = ? , hora = ? WHERE idTurno = ?";
     private static final String SQL_DELETE = "DELETE FROM turno WHERE idTurno = ?";
 
-    public List<TurnoBdd> seleccionar() {
+    public ArrayList<TurnoBdd> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         TurnoBdd turno = null;
-        List<TurnoBdd> turnos = new ArrayList<>();
+        ArrayList<TurnoBdd> turnos = new ArrayList();
 
         try {
             con = Conexion.getConnection();
@@ -30,7 +29,7 @@ public class TurnoDAO {
                 int idTurno = rs.getInt("idTurno");
                 int idPaciente = rs.getInt("idPaciente");
                 int idOdontologo = rs.getInt("idOdontologo");
-                boolean isTratamiento = rs.getBoolean("isTratamiento");
+                int isTratamiento = rs.getInt("idTratamiento");
                 Date fecha = rs.getDate("fecha");
                 Date hora = rs.getDate("hora");
                 turno = new TurnoBdd(idTurno, idPaciente, idOdontologo, isTratamiento, fecha, hora);
@@ -61,7 +60,7 @@ public class TurnoDAO {
             stmt.setInt(1, turno.getIdTurno());
             stmt.setInt(2, turno.getIdPaciente());
             stmt.setInt(3, turno.getIdOdontologo());
-            stmt.setBoolean(4, turno.isIsTratamiento());
+            stmt.setInt(4, turno.getIdTratamiento());
             stmt.setDate(5, turno.getFecha());
             stmt.setDate(6, turno.getHora());
             registros = stmt.executeUpdate();
@@ -91,7 +90,7 @@ public class TurnoDAO {
             stmt.setInt(1, turno.getIdTurno());
             stmt.setInt(2, turno.getIdPaciente());
             stmt.setInt(3, turno.getIdOdontologo());
-            stmt.setBoolean(4, turno.isIsTratamiento());
+            stmt.setInt(4, turno.getIdTratamiento());
             stmt.setDate(5, turno.getFecha());
             stmt.setDate(6, turno.getHora());
             registros = stmt.executeUpdate();
