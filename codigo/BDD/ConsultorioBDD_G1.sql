@@ -36,6 +36,7 @@ create table tratamiento(
 	nombre varchar(30),
 	duracion time,
 	descripcion varchar(100),
+	datos varchar(50),
 	primary key(idTratamiento)
 );
 

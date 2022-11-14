@@ -1,13 +1,13 @@
 package controlador.bdd.modelo;
 
-import java.sql.Date;
+import java.sql.Time;
 
 public class HorarioBdd{
     private int idOdontologo;
     private int diaSemana;
-    private Date  horaInicio, horaFin;
+    private Time  horaInicio, horaFin;
 
-    public HorarioBdd(int idOdontologo, int diaSemana, Date horaInicio, Date horaFin) {
+    public HorarioBdd(int idOdontologo, int diaSemana, Time horaInicio, Time horaFin) {
         this.idOdontologo = idOdontologo;
         this.diaSemana = diaSemana;
         this.horaInicio = horaInicio;
@@ -15,11 +15,11 @@ public class HorarioBdd{
     }
 
 
-    public Date getHoraFin() {
+    public Time getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(Date horaFin) {
+    public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
     }
 
@@ -39,11 +39,11 @@ public class HorarioBdd{
         this.diaSemana = diaSemana;
     }
 
-    public Date getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(Time horaInicio) {
         this.horaInicio = horaInicio;
     }
 

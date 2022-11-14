@@ -2,15 +2,16 @@
 package controlador.bdd.modelo;
 
 import java.sql.Date;
-import modelo.Tratamiento;
+import java.sql.Time;
 
 public class TurnoBdd {
    
     
     private int idTurno,idPaciente,idOdontologo, idTratamiento;
-    private Date fecha, hora;
+    private Date fecha;
+    private Time hora;
 
-    public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, Date fecha, Date hora) {
+    public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, Date fecha, Time hora) {
         this.idTurno = idTurno;
         this.idPaciente = idPaciente;
         this.idOdontologo = idOdontologo;
@@ -19,13 +20,13 @@ public class TurnoBdd {
         this.hora = hora;
     }
     
-        public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, java.util.Date fecha, java.util.Date hora) {
+    public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, java.util.Date fecha, Time hora) {
         this.idTurno = idTurno;
         this.idPaciente = idPaciente;
         this.idOdontologo = idOdontologo;
         this.idTratamiento = idT;
         this.fecha = (Date) fecha;
-        this.hora = (Date) hora;
+        this.hora = hora;
     }
 
     
@@ -70,11 +71,11 @@ public class TurnoBdd {
         this.fecha = fecha;
     }
 
-    public Date getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
     

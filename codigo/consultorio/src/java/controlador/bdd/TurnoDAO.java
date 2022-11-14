@@ -31,7 +31,7 @@ public class TurnoDAO {
                 int idOdontologo = rs.getInt("idOdontologo");
                 int isTratamiento = rs.getInt("idTratamiento");
                 Date fecha = rs.getDate("fecha");
-                Date hora = rs.getDate("hora");
+                Time hora = rs.getTime("hora");
                 turno = new TurnoBdd(idTurno, idPaciente, idOdontologo, isTratamiento, fecha, hora);
                 turnos.add(turno);
             }
@@ -62,7 +62,7 @@ public class TurnoDAO {
             stmt.setInt(3, turno.getIdOdontologo());
             stmt.setInt(4, turno.getIdTratamiento());
             stmt.setDate(5, turno.getFecha());
-            stmt.setDate(6, turno.getHora());
+            stmt.setTime(6, turno.getHora());
             registros = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -92,7 +92,7 @@ public class TurnoDAO {
             stmt.setInt(3, turno.getIdOdontologo());
             stmt.setInt(4, turno.getIdTratamiento());
             stmt.setDate(5, turno.getFecha());
-            stmt.setDate(6, turno.getHora());
+            stmt.setTime(6, turno.getHora());
             registros = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
