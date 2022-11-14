@@ -6,14 +6,14 @@ package modelo;
 public class Paciente extends Persona {
     private String dni;
 
-    public Paciente(int id,String nombre, String apellido, String mail, String dni){
+    public Paciente(int id,String nombre, String apellido,  String dni,String mail){
       super(id,nombre,apellido,mail);
       this.dni=dni;
     
     }
     
-    public Paciente(String nombre, String apellido, String mail, String dni){
-       super(nombre,apellido,mail);
+    public Paciente(String nombre, String apellido,  String dni, String mail){
+       super(-1,nombre,apellido,mail); //si no le pasa id, el id es -1 para detectarlo desde los servlet y Bdd
        this.dni=dni;
     
     } 
