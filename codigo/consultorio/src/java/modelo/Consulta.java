@@ -14,8 +14,8 @@ import java.time.LocalTime;
 public class Consulta extends Tratamiento{
     private boolean isPrimeraVez;
 
-    public Consulta( String nT, LocalTime dT, boolean isP) {
-        super(nT, dT);
+    public Consulta( int id,String nT, LocalTime dT, boolean isP) {
+        super(id,nT, dT);
         this.isPrimeraVez = isP;
     }
 

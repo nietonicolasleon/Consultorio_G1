@@ -25,8 +25,8 @@ public class accesoDatos {
     Horario h3 = new Horario(o2, LocalTime.of(9, 0),LocalTime.of(12, 0),2);
     Horario h4 = new Horario(o2, LocalTime.of(9, 0),LocalTime.of(12, 0),2);
     
-    Limpieza l1 = new Limpieza("limpieza",LocalTime.of(1, 0),false);
-    Implante i1 = new Implante("limpieza",LocalTime.of(1, 0),"china");
+    Limpieza l1 = new Limpieza(1,"limpieza",LocalTime.of(1, 0),false);
+    Implante i1 = new Implante(2,"limpieza",LocalTime.of(1, 0),"china");
     
     Turno t1 = new Turno(1, l1, null, LocalDate.of(2022, 10, 20), LocalTime.of(0, 30), LocalTime.of(9, 0));
     
@@ -39,6 +39,11 @@ public class accesoDatos {
     
     Paciente p1 = new Paciente(1,"Dylan", "Seltzer", "Dylanseltzer@gmail.com", "12345");
     Paciente p2 = new Paciente(1,"Nicolas", "Nieto", "NicoNieto@gmail.com", "54321");
+    
+    Tratamiento tratamiento1= new Conducto(1,"Conducto DUO",LocalTime.of(1, 0),1);
+    Tratamiento tratamiento2= new Implante(2,"Implante",LocalTime.of(4, 0),"china");
+    Tratamiento tratamiento3= new Limpieza(3,"Limpieza Profunda",LocalTime.of(0, 30),true);
+    Tratamiento tratamiento4= new Extraccion(4,"Extraccion Simple",LocalTime.of(1, 0),false);
     
     
     public accesoDatos(){
@@ -65,4 +70,18 @@ public class accesoDatos {
         pacientes.add(p2);
         return pacientes;
     }
+    
+     public ArrayList<Tratamiento> getTratamientos(){
+        ArrayList<Tratamiento> tratamiento= new ArrayList();
+        tratamiento.add(tratamiento1);
+        tratamiento.add(tratamiento2);
+        tratamiento.add(tratamiento3);
+        tratamiento.add(tratamiento4);
+        
+        return tratamiento;
+    }
+    
+   
+    
+    
 }

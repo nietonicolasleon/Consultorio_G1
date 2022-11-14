@@ -4,10 +4,12 @@ package modelo;
 import java.time.LocalTime;
 
 public abstract class Tratamiento {
+    protected int id;
     protected String nombreTratamiento;
     protected  LocalTime duracionTotal;
 
-    public Tratamiento(String nT, LocalTime dT) {
+    public Tratamiento(int id ,String nT, LocalTime dT) {
+        this.id = id;
         this.nombreTratamiento = nT;
         this.duracionTotal = dT;
     }
@@ -31,6 +33,14 @@ public abstract class Tratamiento {
     @Override
     public String toString() {
         return "Tratamiento: "+ this.nombreTratamiento + "\n duracionTotal: " + this.duracionTotal;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
