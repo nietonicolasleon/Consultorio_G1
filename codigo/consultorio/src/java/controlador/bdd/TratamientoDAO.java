@@ -5,6 +5,7 @@ import static controlador.bdd.Conexion.*;
 import java.sql.*;
 import java.util.ArrayList;
 import controlador.bdd.modelo.TratamientoBDD;
+import modelo.*;
 
 public class TratamientoDAO {
     private static final String SQL_SELECT = "SELECT idTratamiento, nombre, duracion, datos FROM tratamiento";
@@ -41,6 +42,8 @@ public class TratamientoDAO {
                 ex.printStackTrace(System.out);
             }
         }
+        
+        /*INGRESE CODIGO PARA TRANFORMAR DE ArraList<TRATAMIENTOBDD> A ArrayList<TRATAMIENTOMODELO> */
         return tratamientos;
     }
     
@@ -121,4 +124,14 @@ public class TratamientoDAO {
 
         return registros;
     }
+    /*
+    public Tratamiento getTratamientoById(int id) {
+        for (Tratamiento t: this.seleccionar()){
+            if(id == p.getId()){
+                return p;
+            }
+        }
+        return null;
+    }
+    */
 }

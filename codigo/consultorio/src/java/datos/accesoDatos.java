@@ -25,8 +25,8 @@ public class accesoDatos {
     Horario h3 = new Horario(o2, LocalTime.of(9, 0),LocalTime.of(12, 0),2);
     Horario h4 = new Horario(o2, LocalTime.of(9, 0),LocalTime.of(12, 0),2);
     
-    Limpieza l1 = new Limpieza("limpieza",LocalTime.of(1, 0),false);
-    Implante i1 = new Implante("limpieza",LocalTime.of(1, 0),"china");
+    Limpieza l1 = new Limpieza("Limpieza Simple",LocalTime.of(0, 30), false);
+    Implante i1 = new Implante("Implate Chino", LocalTime.of(2, 0), "China");
     
     Turno t1 = new Turno(1, l1, null, LocalDate.of(2022, 10, 20), LocalTime.of(0, 30), LocalTime.of(9, 0));
     
