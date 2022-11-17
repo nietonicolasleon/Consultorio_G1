@@ -8,7 +8,7 @@ create table odontologo(
 	idOdontologo int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
-	matricula varchar(20),
+	matricula varchar(20) unique,
 	mail varchar(50),
 	primary key(idOdontologo)
 );
@@ -17,9 +17,9 @@ create table paciente(
 	idPaciente int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
-	dni varchar(10),
+	dni varchar(10) unique,
 	mail varchar(50),
-	primary key(idPaciente, dni)
+	primary key(idPaciente)
 );
 
 create table horario(
