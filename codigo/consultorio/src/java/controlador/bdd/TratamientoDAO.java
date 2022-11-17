@@ -58,7 +58,7 @@ public class TratamientoDAO {
                     Conducto c1 = new Conducto(tratamientos.get(i).getIdTratamiento(), tratamientos.get(i).getNombre(),  tratamientos.get(i).getDuracion().toLocalTime(), 1);
                     modelTrats.add(c1);
                     break;
-                case "Conducto 2 auxiliar":
+                case "Conducto 2 auxiliares":
                     Conducto c2 = new Conducto(tratamientos.get(i).getIdTratamiento(), tratamientos.get(i).getNombre(),  tratamientos.get(i).getDuracion().toLocalTime(), 2);
                     modelTrats.add(c2);
                     break;
