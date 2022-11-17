@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import modelo.Odontologo;
 
 
@@ -19,12 +18,12 @@ public class OdontologoDAO {
     private static final String SQL_UPDATE = "UPDATE odontologo SET idOdontologo = ? , nombre = ? , apellido =  ? , matricula = ?, mail = ? WHERE idOdontologo = ?";
     private static final String SQL_DELETE = "DELETE FROM odontologo WHERE idOdontologo = ?";
 
-    public List<Odontologo> seleccionar() {
+    public ArrayList<Odontologo> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Odontologo odontologo = null;
-        List<Odontologo> odontologos = new ArrayList<>();
+        ArrayList<Odontologo> odontologos = new ArrayList();
 
         try {
             con = Conexion.getConnection();
