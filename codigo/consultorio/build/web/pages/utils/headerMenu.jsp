@@ -12,6 +12,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/consultorio">Inicio</a>
       <a class="nav-item nav-link" href="/consultorio/pages/registro.jsp">Turnos</a>
+      <a class="nav-item nav-link" href="/consultorio/pages/registroOdontologo.jsp">Odontologo</a>
       <a class="nav-item nav-link disabled" href="#">Perfil</a>
     </div>
   </div>

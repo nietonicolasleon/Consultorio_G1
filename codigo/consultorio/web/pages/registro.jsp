@@ -5,7 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="utils/headerMenu.jsp" %>
-<div class="container m-5">
+<div class="container mt-5">
     <div class="card card-body">
     <form action="registrar"  method="post">
     <h4>REGISTRO</h4>

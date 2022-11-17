@@ -131,4 +131,14 @@ public class OdontologoDAO {
         
         return registros;
 }
+        
+        
+        public Odontologo getOdontologoByMatricula(String matricula) {
+        for (Odontologo o: this.seleccionar()){
+            if(matricula.equals(o.getMatricula())){
+                return o;
+            }
+        }
+        return null;
+    }
 }
