@@ -180,14 +180,14 @@ public class TratamientoDAO {
 
         return registros;
     }
-    /*
+    
+
     public Tratamiento getTratamientoById(int id) {
         for (Tratamiento t: this.seleccionar()){
-            if(id == p.getId()){
-                return p;
+            if(id == t.getId()){
+                return t;
             }
         }
         return null;
     }
-    */
 }
