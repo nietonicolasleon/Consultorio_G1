@@ -49,7 +49,7 @@ public class registrar extends HttpServlet {
             
             //devolver el paciente a la pagina de reservaTurnos.jsp
             request.setAttribute("attPaciente", attPaciente);
-            request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/reservaTratamiento.jsp").forward(request, response);
             
 
             
