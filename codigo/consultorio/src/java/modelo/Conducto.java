@@ -43,14 +43,10 @@ public class Conducto extends Tratamiento{
         this.duracionTotal = duracionTotal;
     }
     
-    
-
-    
-    
     @Override
     public String toString() {
         
-        return super.toString() + " Auxiliares: " + canAuxiliares;
+        return "La cantidad de auxiliares es: " + this.canAuxiliares;
     }
     
     

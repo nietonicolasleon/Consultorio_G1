@@ -44,7 +44,7 @@ public class Periodoncia extends Tratamiento {
 
     @Override
     public String toString() {
-        return super.toString() + "\n nivel de Sangrado: " + nivelSangrado;
+        return "Nivel de Sangrado: " + this.nivelSangrado;
     }
     
     

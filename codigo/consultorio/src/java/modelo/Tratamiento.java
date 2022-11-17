@@ -32,7 +32,7 @@ public abstract class Tratamiento {
 
     @Override
     public String toString() {
-        return "Tratamiento: "+ this.nombreTratamiento + "\n duracionTotal: " + this.duracionTotal;
+        return "Tratamiento: "+ this.nombreTratamiento + "\n Duración: " + this.duracionTotal;
     }
     
     public int getId() {

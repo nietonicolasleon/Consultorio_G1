@@ -30,7 +30,7 @@ public class Implante extends Tratamiento implements ImplanteGenerico {
     
     
     public String toString(){
-        return super.toString() + "\n Pais de origen:"+this.paisOrigen;
+        return "Pais de origen: " + this.paisOrigen;
     }
     
     

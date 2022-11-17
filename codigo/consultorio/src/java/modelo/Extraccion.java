@@ -46,7 +46,7 @@ public class Extraccion extends Tratamiento{
     
     @Override
     public String toString() {
-        return super.toString() + "\n Compleja: " + this.isCompleja;
+        return "¿Extracción Compleja?: " + this.isCompleja;
     }
     
  
