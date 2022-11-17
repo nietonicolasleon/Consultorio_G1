@@ -47,7 +47,7 @@ public class Consulta extends Tratamiento{
     
     @Override
     public String toString() {
-        return super.toString() + "\n PrimeraVez: " + this.isPrimeraVez;
+        return "¿Primera Vez?: " + this.isPrimeraVez;
     }
 
 

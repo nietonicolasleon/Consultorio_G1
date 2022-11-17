@@ -44,7 +44,7 @@ public class Limpieza extends Tratamiento{
 
     @Override
     public String toString() {
-        return super.toString() + "\n es Profunda: " + this.isProfunda ;
+        return "¿Limpieza Profunda?: " + this.isProfunda ;
     }
     
 
