@@ -14,8 +14,8 @@ import java.time.LocalTime;
 public class Implante extends Tratamiento implements ImplanteGenerico {
     protected String paisOrigen ;
 
-    public Implante(String nombreTratamiento,LocalTime duracionTotal,String paisOrigen) {
-        super(nombreTratamiento,duracionTotal);
+    public Implante(int id,String nombreTratamiento,LocalTime duracionTotal,String paisOrigen) {
+        super(id,nombreTratamiento,duracionTotal);
         this.paisOrigen = paisOrigen;
     }
 
@@ -30,7 +30,7 @@ public class Implante extends Tratamiento implements ImplanteGenerico {
     
     
     public String toString(){
-        return super.toString() + "\n Pais de origen:"+this.paisOrigen;
+        return "Pais de origen: " + this.paisOrigen;
     }
     
     

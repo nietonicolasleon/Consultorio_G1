@@ -17,6 +17,38 @@ public class Agenda {
     public void addTurno(Turno t){
         this.turnos.add(t);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getCantAgendas() {
+        return cantAgendas;
+    }
+
+    public static void setCantAgendas(int cantAgendas) {
+        Agenda.cantAgendas = cantAgendas;
+    }
+
+    public ArrayList<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(ArrayList<Turno> turnos) {
+        this.turnos = turnos;
+    }
+
+    public ArrayList<Horario> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(ArrayList<Horario> horarios) {
+        this.horarios = horarios;
+    }
     
     public void deleteTurno(int i){
         this.turnos.remove(i);

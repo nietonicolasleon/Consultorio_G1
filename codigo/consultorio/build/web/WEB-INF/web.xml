@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>registrar</servlet-name>
+        <servlet-class>controlador.servlets.registrar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>reservarTurno</servlet-name>
+        <servlet-class>controlador.servlets.reservarTurno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>reservarTratamiento</servlet-name>
+        <servlet-class>controlador.servlets.reservarTratamiento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registrarOdontologo</servlet-name>
+        <servlet-class>controlador.servlets.registrarOdontologo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrar</servlet-name>
+        <url-pattern>/pages/registrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reservarTurno</servlet-name>
+        <url-pattern>/pages/reservarTurno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reservarTratamiento</servlet-name>
+        <url-pattern>/pages/reservarTratamiento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarOdontologo</servlet-name>
+        <url-pattern>/pages/registrarOdontologo</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

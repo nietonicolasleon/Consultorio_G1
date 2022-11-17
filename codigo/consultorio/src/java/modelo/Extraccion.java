@@ -14,8 +14,8 @@ import java.time.LocalTime;
 public class Extraccion extends Tratamiento{
     private boolean isCompleja;
 
-    public Extraccion(String nT, LocalTime dT, boolean isC) {
-        super(nT, dT);
+    public Extraccion(int id,String nT, LocalTime dT, boolean isC) {
+        super(id, nT, dT);
         this.isCompleja = isC;
     }
 
@@ -46,7 +46,7 @@ public class Extraccion extends Tratamiento{
     
     @Override
     public String toString() {
-        return super.toString() + "\n Compleja: " + this.isCompleja;
+        return "¿Extracción Compleja?: " + this.isCompleja;
     }
     
  

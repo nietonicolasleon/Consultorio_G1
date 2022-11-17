@@ -5,19 +5,19 @@ use consultorio;
 
 /*Se crean las tablas que serán utilizadas*/
 create table odontologo(
-	idOdontologo int unsigned not null,
+	idOdontologo int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
-	matricula varchar(20),
+	matricula varchar(20) unique,
 	mail varchar(50),
 	primary key(idOdontologo)
 );
 
 create table paciente(
-	idPaciente int unsigned,
+	idPaciente int unsigned auto_increment not null,
 	apellido varchar(30),
 	nombre varchar(30),
-	dni varchar(10),
+	dni varchar(10) unique,
 	mail varchar(50),
 	primary key(idPaciente)
 );
@@ -31,16 +31,25 @@ create table horario(
 	foreign key(idOdontologo) references odontologo(idOdontologo)
 );
 
+create table tratamiento(
+	idTratamiento int unsigned not null,
+	nombre varchar(30),
+	duracion time,
+	datos varchar(50),
+	primary key(idTratamiento)
+);
+
 create table turno(
-	idTurno int unsigned auto_increment,
+	idTurno int unsigned auto_increment not null,
 	idPaciente int unsigned,
 	idOdontologo int unsigned not null,
-	isTratamiento boolean,
+	idTratamiento int unsigned,
 	fecha date,
 	hora time,
 	primary key(idTurno),
 	foreign key(idPaciente) references paciente(idPaciente),
-	foreign key(idOdontologo) references horario(idOdontologo)
+	foreign key(idOdontologo) references horario(idOdontologo),
+	foreign key(idTratamiento) references tratamiento(idTratamiento)
 );
 
 /*Se insertan los valores de los odontólogos y sus respectivos horarios*/
@@ -70,6 +79,19 @@ insert into horario values(5, 2, "10:00", "12:00");
 insert into horario values(5, 3, "10:00", "12:00");
 insert into horario values(5, 4, "10:00", "12:00");
 insert into horario values(5, 5, "10:00", "12:00");
+
+insert into tratamiento values(1, "Consulta Primera vez", "0:30", "true");
+insert into tratamiento values(2, "Consulta", "0:30", "false");
+insert into tratamiento values(3, "Conducto 1 auxiliar", "1:00", "1");
+insert into tratamiento values(4, "Conducto 2 auxiliares", "1:00", "2");
+insert into tratamiento values(5, "Limpieza Simple", "0:30", "false");
+insert into tratamiento values(6, "Limpieza Profunda", "0:30", "true");
+insert into tratamiento values(7, "Implante Chino", "2:00", "China");
+insert into tratamiento values(8, "Implante Ruso", "2:00", "Rusia");
+insert into tratamiento values(9, "Extraccion Simple", "2:00", "false");
+insert into tratamiento values(10, "Extraccion Compleja", "2:00", "true");
+insert into tratamiento values(11, "Periodoncia Simple", "1:00", "Bajo");
+insert into tratamiento values(12, "Periodoncia Compleja", "1:00", "Alto");
 
 /*Creamos las funciones y procedimientos a utilizar*/
 delimiter $$
@@ -158,7 +180,7 @@ begin
 		set horaIni = (select horaInicio from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		set horaMax = (select horaFin from horario where horario.idOdontologo = idO and horario.diaSemana = date_format(fechaActual, "%w"));
 		while horaIni < horaMax do
-			insert into turno(idOdontologo, isTratamiento, fecha, hora) values(idO, false, fechaActual, horaIni);
+			insert into turno(idOdontologo, fecha, hora) values(idO, fechaActual, horaIni);
 			set horaIni = addtime(horaIni, durTurno);
 		end while;
 		set contador = contador + 1;

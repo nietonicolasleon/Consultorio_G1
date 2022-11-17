@@ -14,8 +14,8 @@ import java.time.LocalTime;
 public class Conducto extends Tratamiento{
     private int canAuxiliares;
 
-    public Conducto(String nT, LocalTime dT, int cA) {
-        super(nT, dT);
+    public Conducto(int id, String nT, LocalTime dT, int cA) {
+        super(id,nT, dT);
         this.canAuxiliares = cA;
     }
 
@@ -43,14 +43,10 @@ public class Conducto extends Tratamiento{
         this.duracionTotal = duracionTotal;
     }
     
-    
-
-    
-    
     @Override
     public String toString() {
         
-        return super.toString() + " Auxiliares: " + canAuxiliares;
+        return "La cantidad de auxiliares es: " + this.canAuxiliares;
     }
     
     

@@ -11,8 +11,8 @@ import java.time.LocalTime;
 public class Limpieza extends Tratamiento{
     private boolean isProfunda;
 
-    public Limpieza(String nT, LocalTime dT, boolean isP ) {
-        super(nT, dT);
+    public Limpieza(int id,String nT, LocalTime dT, boolean isP ) {
+        super(id,nT, dT);
         this.isProfunda = isP;
     }
 
@@ -38,13 +38,13 @@ public class Limpieza extends Tratamiento{
 
     public void setDuracionTotal(LocalTime duracionTotal) {
         this.duracionTotal = duracionTotal;
-    }
+    } 
     
     
 
     @Override
     public String toString() {
-        return super.toString() + "\n es Profunda: " + this.isProfunda ;
+        return "¿Limpieza Profunda?: " + this.isProfunda ;
     }
     
 

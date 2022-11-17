@@ -1,1 +1,52 @@
 
+
+
+.cont-cli{
+    background: rgb(235, 235, 235);
+    width: 60%;
+    margin: auto;
+    border-radius:12px; 
+    border: 1px black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.cont-cli .cont{
+    margin: 12px;
+    font-size: 1rem;
+    
+}
+.cont-cli .fa-user{
+    font-size: 30px;
+}
+
+
+.containerInicio{
+    width: 60% !important;
+    margin:  auto;
+    margin-top:30px;
+    border: 1px rgba(45, 45, 45, 0.267) solid;
+    border-radius:15px;
+    padding:15px !important;
+    box-shadow: 0 0 20px rgba(54, 54, 54, 0.299);
+}
+
+.btnIniciar{
+    width:5rem ; 
+}
+
+.contIntegrantes{
+    text-align:left !important; 
+    width: 60% ;
+    margin:  auto;
+    padding:15px !important;
+
+}
+
+.contenedortextoExplicativo{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
