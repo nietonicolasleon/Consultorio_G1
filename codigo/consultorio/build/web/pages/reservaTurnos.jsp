@@ -7,10 +7,12 @@
 <div class="container mt-4">
     <%
         Paciente attPaciente = (Paciente)request.getAttribute("attPaciente");
+        Tratamiento attTratamiento = (Tratamiento)request.getAttribute("attTratamiento");
        //cargo y vaido que este registrado
         if(attPaciente.getDni() == null){
             response.sendRedirect("/consultorio/pages/registro.jsp");
         }
+        
     %>
     <div class="contenedortextoExplicativo ">
         <p class="contenedortextoExplicativo">Seleccione el turno deseado para <span class="font-weight-bold">reservarlo</span></p>
@@ -29,7 +31,10 @@
             <div class="cont">
                 <%=attPaciente.getMail()%>
             </div>
-        </div>
+    </div>
+    <div class="containes mt-1 cont-cli contenedortextoExplicativo ">
+        <p class="contenedortextoExplicativo"><%=attTratamiento.getNombreTratamiento()%> - <%=attTratamiento.getDuracionTotal()%></p>
+    </div>
         <div class="container mt-4">
             <%@page import="java.util.ArrayList"%>
             <%@page import="datos.accesoDatos"%>
@@ -62,7 +67,7 @@
                                     <td><%= turno.getHoraIni() %></td> <!--hora inicio -->
                                     <td><%= odontologo.getNombre() + " " + odontologo.getApellido() %></td> <!--nombre odontologo -->
                                     <td>
-                                        <a href="reservarTurno?date=<%=turno.getId()%>,<%=odontologo.getId()%>,<%= attPaciente.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                                        <a href="reservarTurno?date=<%= attPaciente.getId()%>,<%= attTratamiento.getId()%>,<%=turno.getId()%>,<%=odontologo.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
                                     </td>
                                 <tr>
                             <%

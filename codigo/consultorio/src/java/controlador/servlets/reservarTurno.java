@@ -36,11 +36,11 @@ public class reservarTurno extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             //recupero los datos del get y los desestructuro
             String[] date = request.getParameter("date").split(",");
-            int idTurno = Integer.parseInt(date[0]);
-            int idOdontologo = Integer.parseInt(date[1]);
-            int idPaciente = Integer.parseInt(date[2]);
+            int idPaciente = Integer.parseInt(date[0]);
+            int idTratamiento = Integer.parseInt(date[1]);
+            int idTurno = Integer.parseInt(date[2]);
+            int idOdontologo = Integer.parseInt(date[3]);
             
-           
             BddTurnos bddTurnos = new BddTurnos();
             Turno attTurno = bddTurnos.getTurnoById(idTurno);
             
@@ -50,13 +50,15 @@ public class reservarTurno extends HttpServlet {
             PacienteDAO pDAO = new PacienteDAO();
             Paciente attPaciente = pDAO.getPacienteById(idPaciente);
             
-
+            TratamientoDAO tDAO = new TratamientoDAO();
+            Tratamiento attTratamiento = tDAO.getTratamientoById(idTratamiento);
             
             //codigo para modificar el turno y cargar los datos del paciente, odontologo 
 
             out.print(attTurno.getFecha());
             out.print(attOdontologo.getNombre());
             out.print(attPaciente.getNombre());
+            out.print(attTratamiento.getNombreTratamiento());
            
         }
     }

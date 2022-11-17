@@ -5,18 +5,16 @@
  */
 package controlador.servlets;
 
-import controlador.bdd.BddOdontologo;
-import controlador.bdd.BddTurnos;
+
 import controlador.bdd.PacienteDAO;
+import controlador.bdd.TratamientoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Odontologo;
-import modelo.Paciente;
-import modelo.Turno;
+import modelo.*;
 
 /**
  *
@@ -39,21 +37,22 @@ public class reservarTratamiento extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             //recupero los datos del get y los desestructuro
+            out.print("ENTROO");
+            
             String[] date = request.getParameter("date").split(",");
-            int idTratamiento = Integer.parseInt(date[0]);
-            int idPaciente = Integer.parseInt(date[1]);
+            int idPaciente = Integer.parseInt(date[0]);
+            int idTratamiento = Integer.parseInt(date[1]);
             
             PacienteDAO pDAO = new PacienteDAO();
             Paciente attPaciente = pDAO.getPacienteById(idPaciente);
-            /*
-            Codig para solicitar el tratamiento
+            
+            //Codig para solicitar el tratamiento
             TratamientoDAO tDAO = new TratamientoDAO();
             Tratamiento attTratamiento = tDAO.getTratamientoById(idTratamiento);
-            */
             
-
+            
             request.setAttribute("attPaciente", attPaciente);
-            //request.setAttribute("attTratamiento", attTratamiento);
+            request.setAttribute("attTratamiento", attTratamiento);
             request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
         }
     }

@@ -26,7 +26,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>reservarTratamiento</servlet-name>
-        <url-pattern>/reservarTratamiento</url-pattern>
+        <url-pattern>/pages/reservarTratamiento</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registrarOdontologo</servlet-name>

@@ -50,7 +50,7 @@
                                                     <h3><%= tratamiento.getNombreTratamiento() %></h3>
                                                     <p>  Duracion: <%= tratamiento.getDuracionTotal().toString() %></p>
                                                     <p><%= tratamiento.toString() %></p>
-                                                    <a href="reservarTurno?date=<%=attPaciente.getId()%>,<%=tratamiento.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i> Seleccionar</a>
+                                                    <a href="reservarTratamiento?date=<%=attPaciente.getId()%>,<%=tratamiento.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i> Seleccionar</a>
         
                                             </div>
                                         </div>
