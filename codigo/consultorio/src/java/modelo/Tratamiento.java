@@ -8,17 +8,10 @@ public abstract class Tratamiento {
     protected String nombreTratamiento;
     protected  LocalTime duracionTotal;
 
-    public Tratamiento(String nT, LocalTime dT) {
+    public Tratamiento(int id ,String nT, LocalTime dT) {
+        this.id = id;
         this.nombreTratamiento = nT;
         this.duracionTotal = dT;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombreTratamiento() {
@@ -40,6 +33,14 @@ public abstract class Tratamiento {
     @Override
     public String toString() {
         return "Tratamiento: "+ this.nombreTratamiento + "\n duracionTotal: " + this.duracionTotal;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

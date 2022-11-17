@@ -11,8 +11,8 @@ import java.time.LocalTime;
 public class Periodoncia extends Tratamiento {
    private String nivelSangrado;
 
-    public Periodoncia(String nT, LocalTime dT ,String nS ) {
-        super(nT, dT);
+    public Periodoncia(int id,String nT, LocalTime dT ,String nS ) {
+        super(id,nT, dT);
         this.nivelSangrado = nS;
     }
 

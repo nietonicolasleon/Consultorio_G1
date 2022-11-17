@@ -14,8 +14,8 @@ import java.time.LocalTime;
 public class Conducto extends Tratamiento{
     private int canAuxiliares;
 
-    public Conducto(String nT, LocalTime dT, int cA) {
-        super(nT, dT);
+    public Conducto(int id, String nT, LocalTime dT, int cA) {
+        super(id,nT, dT);
         this.canAuxiliares = cA;
     }
 
