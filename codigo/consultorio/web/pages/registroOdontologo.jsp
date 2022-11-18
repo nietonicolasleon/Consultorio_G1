@@ -5,6 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="utils/headerMenu.jsp" %>
+<%//CÓDIGO html, al clickear en submit se manda a servlet registrarOdontologo %>
 <div class="container mt-5">
     <div class="card card-body">
     <form action="registrarOdontologo"  method="post">

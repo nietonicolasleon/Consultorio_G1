@@ -2,7 +2,7 @@
 package modelo;
 
 
-
+/*Hecha por Kiara Chunga*/
 public class Paciente extends Persona {
     private String dni;
 

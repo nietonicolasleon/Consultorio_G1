@@ -1,6 +1,6 @@
-
 package modelo;
 
+/*Hecha por Kiara Chunga*/
 import java.time.LocalTime;
 
 public abstract class Tratamiento {

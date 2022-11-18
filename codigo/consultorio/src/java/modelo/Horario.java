@@ -1,5 +1,6 @@
 package modelo;
 
+/*Hecha por Kiara Chunga*/
 import java.time.LocalTime;
 
 public class Horario{

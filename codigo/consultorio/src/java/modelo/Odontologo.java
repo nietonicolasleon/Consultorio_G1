@@ -1,7 +1,6 @@
-
 package modelo;
 
-
+/*Hecha por Kiara Chunga*/
 public class Odontologo extends Persona{
      private String matricula;
 

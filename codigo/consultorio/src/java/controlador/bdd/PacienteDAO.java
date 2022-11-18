@@ -12,7 +12,7 @@ import modelo.Odontologo;
 import modelo.Paciente;
 
 public class PacienteDAO {
-
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idPaciente, nombre, apellido, dni, mail FROM paciente";
     private static final String SQL_INSERT = "INSERT INTO paciente(nombre,apellido,dni,mail) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE paciente SET idPaciente = ? , nombre = ? , apellido =  ? , dni = ?, mail = ? WHERE idPaciente = ?";

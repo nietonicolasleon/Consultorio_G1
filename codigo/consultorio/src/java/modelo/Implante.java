@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
+/*Hecha por Dylan Seltzer*/
 import java.time.LocalTime;
 
-/**
- *
- * @author localuser
- */
 public class Implante extends Tratamiento implements ImplanteGenerico {
     protected String paisOrigen ;
 

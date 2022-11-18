@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import modelo.Turno;
 
 public class TurnoDAO {
-
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idTurno, idPaciente, idOdontologo, idTratamiento, fecha, hora FROM turno";
     private static final String SQL_INSERT = "INSERT INTO turno(idPaciente,idOdontologo,idTratamiento,fecha,hora) VALUES (?,?,?,?,?);";
     private static final String SQL_UPDATE = "UPDATE turno SET idTratamiento = ? , fecha = ? , hora = ? WHERE idTurno = ?";

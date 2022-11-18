@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class HorarioDAO {
-
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idOdontologo, diaSemana, horaInicio, horaFin FROM horario";
     private static final String SQL_INSERT = "INSERT INTO horario(idOdontologo, diaSemana, horaInicio, horaFin) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE horario SET idOdontologo = ? , diaSemana = ? , horaInicio = ?, horaFin = ? WHERE idOdontologo = ?";

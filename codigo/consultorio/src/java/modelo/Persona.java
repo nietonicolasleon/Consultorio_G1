@@ -1,6 +1,6 @@
-
 package modelo;
 
+/*Hecha por Kiara Chunga*/
 public abstract class Persona {
    protected int id;
    protected String nombre;

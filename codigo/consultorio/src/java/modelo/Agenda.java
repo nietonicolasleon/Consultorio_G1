@@ -1,23 +1,22 @@
-
 package modelo;
 
+/*Hecha por Nicolás Nieto*/
 import java.util.ArrayList;
 
 public class Agenda {
+    //Atributos
     private int id;
     private static int cantAgendas;
     private ArrayList<Turno> turnos = new ArrayList();
     private ArrayList<Horario> horarios = new ArrayList();
     
+    /*Método constructor*/
     public Agenda(){
         Agenda.cantAgendas++;
         this.id = Agenda.cantAgendas;
     }
     
-    public void addTurno(Turno t){
-        this.turnos.add(t);
-    }
-
+    /*Getters y Setters*/
     public int getId() {
         return id;
     }
@@ -50,10 +49,16 @@ public class Agenda {
         this.horarios = horarios;
     }
     
+    /*Agregar y Borrar Turnos*/
+    public void addTurno(Turno t){
+        this.turnos.add(t);
+    }
+    
     public void deleteTurno(int i){
         this.turnos.remove(i);
     }
     
+    /*Agregar y Borrar Horario*/
     public void addHorario(Horario h){
         this.horarios.add(h);
     }
@@ -62,6 +67,7 @@ public class Agenda {
         this.horarios.remove(i);
     }
     
+    /*Esta función nos devuelve los turnos disponibles (sin Paciente)*/
     public ArrayList<Turno> getTurnosDisponibles(){
         ArrayList<Turno> aux = new ArrayList();
         for (int i = 0; i < this.turnos.size(); i++) {
@@ -72,6 +78,7 @@ public class Agenda {
         return aux;
     }
     
+    /*Método toString*/
     @Override
     public String toString(){
         String a = "AGENDA: " + this.id + "\n Esta es la agenda del Odontólogo: " + this.horarios.get(0).getOdontologo().apellido + " " + this.horarios.get(0).getOdontologo().nombre + 

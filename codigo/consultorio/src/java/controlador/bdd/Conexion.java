@@ -2,13 +2,14 @@ package controlador.bdd;
  
 import java.sql.*;
 
-
- 
+/*Hecha por Dylan Seltzer*/
 public class Conexion {
+    /*Se declaran las variables para la conexión con la BDD*/
     public static final String URL = "jdbc:mysql://localhost:3306/consultorio";
     public static final String USER = "root";
     public static final String CLAVE = "";
      
+    /*Se establece la conexión con el uso de un try catch*/
     public static Connection getConnection(){
         Connection con = null;
         try{
@@ -20,8 +21,8 @@ public class Conexion {
         return con;
     }
     
-    
-      public static void close(ResultSet rs) throws SQLException {
+    /*Se establecen los métodos de cerrar conexión con la BDD*/
+    public static void close(ResultSet rs) throws SQLException {
         rs.close();
     }
 

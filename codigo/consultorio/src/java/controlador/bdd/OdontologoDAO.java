@@ -1,5 +1,6 @@
 package controlador.bdd;
 
+/*Hecha por Wilver Guzmán*/
 import static controlador.bdd.Conexion.close;
 import static controlador.bdd.Conexion.getConnection;
 import java.sql.Connection;
@@ -9,15 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Odontologo;
 
-
-
-
 public class OdontologoDAO {
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idOdontologo, nombre, apellido, matricula, mail FROM odontologo";
     private static final String SQL_INSERT = "INSERT INTO odontologo(idOdontologo,nombre,apellido,matricula,mail) VALUES (?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE odontologo SET idOdontologo = ? , nombre = ? , apellido =  ? , matricula = ?, mail = ? WHERE idOdontologo = ?";
     private static final String SQL_DELETE = "DELETE FROM odontologo WHERE idOdontologo = ?";
 
+    /*El método seleccionar devuelve todos los Odontologos*/
     public ArrayList<Odontologo> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -52,6 +52,7 @@ public class OdontologoDAO {
         return odontologos;
     }
     
+    /*El método seleccionar devuelve todos los Odontologos*/
     public int insertar(Odontologo odontologo) {
         Connection con = null;
         PreparedStatement stmt = null;

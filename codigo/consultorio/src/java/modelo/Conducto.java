@@ -1,24 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
+/*Hecha por Kiara Chunga*/
 import java.time.LocalTime;
 
-/**
- *
- * @author localuser
- */
 public class Conducto extends Tratamiento{
+    //Atributos
     private int canAuxiliares;
 
+    /*Método Constructor*/
     public Conducto(int id, String nT, LocalTime dT, int cA) {
         super(id,nT, dT);
         this.canAuxiliares = cA;
     }
 
+    /*Getters y Setters*/
     public int getCanAuxiliares() {
         return canAuxiliares;
     }
@@ -43,6 +38,7 @@ public class Conducto extends Tratamiento{
         this.duracionTotal = duracionTotal;
     }
     
+    /*Método toString*/
     @Override
     public String toString() {
         

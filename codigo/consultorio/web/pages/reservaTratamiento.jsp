@@ -1,4 +1,4 @@
-
+<%//Se incluyen el header, el tratamientoDAO y las clases Modelo %>
 <%@page import="controlador.bdd.TratamientoDAO"%>
 <%@include file="utils/headerMenu.jsp" %>
 <%@page import="modelo.*" %>
@@ -6,16 +6,22 @@
 
 
 <div class="container mt-4">
+    
     <%
+        //Se llama al atributo Paciente creado en el servlet. Se crea un paciente
         Paciente attPaciente = (Paciente)request.getAttribute("attPaciente");
-       //cargo y vaido que este registrado
+       //cargo y valido que este registrado
         if(attPaciente.getDni() == null){
             response.sendRedirect("/consultorio/pages/registro.jsp");
         }
     %>
+    <%//CÓDIGO html %>
+
     <div class="contenedortextoExplicativo ">
         <p class="contenedortextoExplicativo">Seleccione el turno deseado para <span class="font-weight-bold">reservarlo</span></p>
     </div>
+    
+    <%//Contenedor de Paciente %>
     <div class="containes mt-1 cont-cli">
             <i class="fa-solid fa-user"></i>
             <div class="cont">
@@ -32,6 +38,7 @@
             </div>
         </div>
         <div class="container mt-4">
+            <%//Importamos ArrayList y accesoDatos %>
             <%@page import="java.util.ArrayList"%>
             <%@page import="datos.accesoDatos"%>
 
@@ -40,7 +47,8 @@
                             <%
                             TratamientoDAO tDAO = new TratamientoDAO();
                             
-        
+                            //Se recorren todos los tratamientos y se crea código HTML por cada tratamiento
+                            //Se rellena cada tratamiento con la info.
                             for(Tratamiento  tratamiento : tDAO.seleccionar()){
                                 
                                     %>
@@ -50,6 +58,7 @@
                                                     <h3><%= tratamiento.getNombreTratamiento() %></h3>
                                                     <p>  Duracion: <%= tratamiento.getDuracionTotal().toString() %></p>
                                                     <p><%= tratamiento.toString() %></p>
+                                                    <%//El <a> actua como botón mandandonos al servlet reservarTratamiento pasando las id de Paciente y Tratamiento por GET %>
                                                     <a href="reservarTratamiento?date=<%=attPaciente.getId()%>,<%=tratamiento.getId()%>" class="btn btn-success"><i class="fa-solid fa-check"></i> Seleccionar</a>
         
                                             </div>

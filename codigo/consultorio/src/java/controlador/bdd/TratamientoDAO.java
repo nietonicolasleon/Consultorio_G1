@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import modelo.*;
 
 public class TratamientoDAO {
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idTratamiento, nombre, duracion, datos FROM tratamiento";
     private static final String SQL_INSERT = "INSERT INTO tratamiento(idTratamiento, nombre, duracion, datos) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE tratamiento SET idTratamiento = ? , nombre = ? , duracion = ?, datos = ? WHERE idTratamiento = ?";
