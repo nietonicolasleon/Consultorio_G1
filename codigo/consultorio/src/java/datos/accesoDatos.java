@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package datos;
+
+/*Clase hecha por Wilver Guzmán*/
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Month;
 import java.util.ArrayList;
 import modelo.*;
 
-/**
- *
- * @author localuser
- */
+
 public class accesoDatos {
     
     Odontologo o1 = new Odontologo(0,"Pedro","parques","pedroparques@gmail.com","M12345");

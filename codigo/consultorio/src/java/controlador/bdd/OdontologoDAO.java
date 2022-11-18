@@ -52,7 +52,7 @@ public class OdontologoDAO {
         return odontologos;
     }
     
-    /*El método seleccionar devuelve todos los Odontologos*/
+    /*El método insertar permite agregar un nuevo Odontólogo*/
     public int insertar(Odontologo odontologo) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -82,6 +82,7 @@ public class OdontologoDAO {
 
     }
     
+    /*El método actualizar permite cambiar los datos de un odontólogo*/
     public int actualizar(Odontologo odontologo) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -108,8 +109,10 @@ public class OdontologoDAO {
         }
         
         return registros;
-}
-        public int eliminar(Odontologo odontologo) {
+    }
+    
+    /*El método eliminar permite eliminar un Odontólogo de la BDD*/
+    public int eliminar(Odontologo odontologo) {
         Connection con = null;
         PreparedStatement stmt = null;
         int registros = 0;
@@ -132,9 +135,9 @@ public class OdontologoDAO {
         
         return registros;
 }
-        
-        
-        public Odontologo getOdontologoByMatricula(String matricula) {
+    
+    /*Con este método podemos acceder a todos los odontólogos por su matrícula*/
+    public Odontologo getOdontologoByMatricula(String matricula) {
         for (Odontologo o: this.seleccionar()){
             if(matricula.equals(o.getMatricula())){
                 return o;

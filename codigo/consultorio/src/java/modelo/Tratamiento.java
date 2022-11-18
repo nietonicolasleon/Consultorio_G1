@@ -4,16 +4,19 @@ package modelo;
 import java.time.LocalTime;
 
 public abstract class Tratamiento {
+    //Atributos
     protected int id;
     protected String nombreTratamiento;
     protected  LocalTime duracionTotal;
 
+    /*Método Constructor*/
     public Tratamiento(int id ,String nT, LocalTime dT) {
         this.id = id;
         this.nombreTratamiento = nT;
         this.duracionTotal = dT;
     }
 
+    /*Getters y Setters*/
     public String getNombreTratamiento() {
         return nombreTratamiento;
     }
@@ -29,11 +32,6 @@ public abstract class Tratamiento {
     public void setDuracionTotal(LocalTime duracionTotal) {
         this.duracionTotal = duracionTotal;
     }
-
-    @Override
-    public String toString() {
-        return "Tratamiento: "+ this.nombreTratamiento + "\n Duración: " + this.duracionTotal;
-    }
     
     public int getId() {
         return id;
@@ -43,8 +41,9 @@ public abstract class Tratamiento {
         this.id = id;
     }
     
-    
-    
-    
-    
+    /*Método toString*/
+    @Override
+    public String toString() {
+        return "Tratamiento: "+ this.nombreTratamiento + "\n Duración: " + this.duracionTotal;
+    }
 }

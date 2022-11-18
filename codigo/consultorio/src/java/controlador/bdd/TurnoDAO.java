@@ -1,11 +1,11 @@
 package controlador.bdd;
 
+/*Clase hecha por Wilver Guzmán, Corregida por Nicolás Nieto*/
 import java.util.Date;
 import static controlador.bdd.Conexion.*;
 import controlador.bdd.modelo.TurnoBdd;
 import java.sql.*;
 import java.util.ArrayList;
-import modelo.Turno;
 
 public class TurnoDAO {
     /*Se declaran los select, insert, update y delete*/
@@ -14,6 +14,7 @@ public class TurnoDAO {
     private static final String SQL_UPDATE = "UPDATE turno SET idTratamiento = ? , fecha = ? , hora = ? WHERE idTurno = ?";
     private static final String SQL_DELETE = "DELETE FROM turno WHERE idTurno = ?";
 
+    /*Este método nos permite seleccionar un ArrayList de todos los Turnos de la BDD*/
     public ArrayList<TurnoBdd> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -49,6 +50,7 @@ public class TurnoDAO {
         return turnos;
     }
     
+    /*Este método nos permite insertar un nuevo turno a la BDD*/
     public int insertar(TurnoBdd turno) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -79,6 +81,7 @@ public class TurnoDAO {
 
     }
     
+    /*Este método nos permite actualizar los datos de un turno de la BDD*/
     public int actualizar(TurnoBdd turno) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -106,8 +109,10 @@ public class TurnoDAO {
         }
         
         return registros;
-}
-        public int eliminar(TurnoBdd turno) {
+    }
+    
+    /*Este método nos permite eliminar un turno de la BDD*/
+    public int eliminar(TurnoBdd turno) {
         Connection con = null;
         PreparedStatement stmt = null;
         int registros = 0;

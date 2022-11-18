@@ -1,14 +1,20 @@
+<%//Se incluye el header y las clases de modelo %>
 
 <%@include file="utils/headerMenu.jsp" %>
 <%@page import="modelo.*" %>
 
+<%-- 
+    Document   : registro
+    Created on : 12 nov. 2022, 01:44:02
+    Author     : dylan
+--%>
 
 
 <div class="container mt-4">
     <%
         Paciente attPaciente = (Paciente)request.getAttribute("attPaciente");
         Tratamiento attTratamiento = (Tratamiento)request.getAttribute("attTratamiento");
-       //cargo y vaido que este registrado
+       //cargo y valido que este registrado
         if(attPaciente.getDni() == null){
             response.sendRedirect("/consultorio/pages/registro.jsp");
         }
@@ -56,7 +62,8 @@
                     accesoDatos a1 = new accesoDatos();
                     ArrayList<Agenda> agendas = a1.getAgendas();
                     int cont = 1;
-
+                    //Por cada agenda, se obtienen sus turnos y por cada uno de ellos, los datos de la fecha, hora y el odontologo
+                    //Se crean entradas en una tabla HTML con dichos datos
                     for(Agenda a : agendas){
                         Odontologo odontologo = a.getHorarios().get(0).getOdontologo();
                         for(Turno turno : a.getTurnos()){

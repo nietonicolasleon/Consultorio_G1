@@ -22,18 +22,22 @@ public class Conducto extends Tratamiento{
         this.canAuxiliares = canAuxiliares;
     }
 
+    @Override
     public String getNombreTratamiento() {
         return nombreTratamiento;
     }
 
+    @Override
     public void setNombreTratamiento(String nombreTratamiento) {
         this.nombreTratamiento = nombreTratamiento;
     }
 
+    @Override
     public LocalTime getDuracionTotal() {
         return duracionTotal;
     }
 
+    @Override
     public void setDuracionTotal(LocalTime duracionTotal) {
         this.duracionTotal = duracionTotal;
     }

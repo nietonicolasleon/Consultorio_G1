@@ -4,13 +4,14 @@ package modelo;
 import java.time.LocalTime;
 
 public class Horario{
-    
+    //Atributos
     private int id;
     private Odontologo odontologo;
     private LocalTime horaInicio;
     private LocalTime horaFin;
     private int diaSemana;
 
+    /*Métodos Constructores*/
     public Horario(int id, Odontologo o, LocalTime hI, LocalTime hF, int diaSemana) {
         this.id = id;
         this.odontologo = o;
@@ -26,6 +27,7 @@ public class Horario{
         this.diaSemana = diaSemana;
     }
 
+    /*Getters y Setters*/
     public int getId() {
         return id;
     }

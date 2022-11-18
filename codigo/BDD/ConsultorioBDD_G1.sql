@@ -52,7 +52,7 @@ create table turno(
 	foreign key(idTratamiento) references tratamiento(idTratamiento)
 );
 
-/*Se insertan los valores de los odontólogos y sus respectivos horarios*/
+/*Se insertan los valores de los odontólogos y sus respectivos horarios, así como los tratamientos*/
 insert into odontologo values(1, "Vasquez", "Edmundo", "46343", "vasquezdrmundolol@mail.com");
 insert into odontologo values(2, "Van Bothoven", "Ludwig", "27482", "drludwigvanbothoventf2@mail.com");
 insert into odontologo values(3, "Taylor", "Roger", "78336", "drrogerqueentaylor@mail.com");

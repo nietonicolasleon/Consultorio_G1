@@ -1,6 +1,6 @@
 package controlador.bdd;
 
-import controlador.bdd.modelo.TurnoBdd;
+/*Clase hecha por Wilver Guzmán, Corregida por Nicolás Nieto*/
 import controlador.bdd.modelo.HorarioBdd;
 import static controlador.bdd.Conexion.*;
 import java.sql.*;
