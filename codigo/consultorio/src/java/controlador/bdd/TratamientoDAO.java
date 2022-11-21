@@ -1,18 +1,20 @@
 package controlador.bdd;
 
+/*Clase hecha por Nicolás Nieto*/
 import static controlador.bdd.Conexion.*;
 import java.sql.*;
 import java.util.ArrayList;
 import controlador.bdd.modelo.TratamientoBDD;
-import java.time.LocalTime;
 import modelo.*;
 
 public class TratamientoDAO {
+    /*Se declaran los select, insert, update y delete*/
     private static final String SQL_SELECT = "SELECT idTratamiento, nombre, duracion, datos FROM tratamiento";
     private static final String SQL_INSERT = "INSERT INTO tratamiento(idTratamiento, nombre, duracion, datos) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE tratamiento SET idTratamiento = ? , nombre = ? , duracion = ?, datos = ? WHERE idTratamiento = ?";
     private static final String SQL_DELETE = "DELETE FROM tratamiento WHERE idTratamiento = ?";
     
+    /*El método seleccionar devuelve todos los Tratamientos en una ArrayList*/
     public ArrayList<Tratamiento> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -44,7 +46,9 @@ public class TratamientoDAO {
             }
         }
         
+        /*Empleamos un for y por cada tratamiento, creamos un objeto distinto (Revisar hijos de Tratamiento)*/
         for (int i = 0; i < tratamientos.size(); i++) {
+            /*Se filtra la clase de objeto creado en base a su nombre*/
             switch(tratamientos.get(i).getNombre()){
                 case "Consulta Primera vez":
                     Consulta cpv = new Consulta(tratamientos.get(i).getIdTratamiento(), tratamientos.get(i).getNombre(), tratamientos.get(i).getDuracion().toLocalTime(), true);
@@ -103,6 +107,7 @@ public class TratamientoDAO {
         return modelTrats;
     }
     
+    /*El método insertar permite insertar un nuevo Tratamiento a la BDD*/
     public int insertar(TratamientoBDD tratamiento) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -130,6 +135,7 @@ public class TratamientoDAO {
         return registros;
     }
     
+    /*El método actualizar permite cambiar los datos de un Tratamiento de la BDD*/
     public int actualizar(TratamientoBDD tratamiento) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -157,6 +163,7 @@ public class TratamientoDAO {
         return registros;
     }
 
+    /*El método eliminar permite eliminar un Tratamiento de la BDD*/
     public int eliminar(TratamientoBDD tratamiento) {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -181,7 +188,7 @@ public class TratamientoDAO {
         return registros;
     }
     
-
+    /*Este método nos permite conseguir un Tratamiento en base a su ID*/
     public Tratamiento getTratamientoById(int id) {
         for (Tratamiento t: this.seleccionar()){
             if(id == t.getId()){

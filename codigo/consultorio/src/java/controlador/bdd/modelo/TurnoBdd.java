@@ -1,16 +1,21 @@
-
 package controlador.bdd.modelo;
 
+/*Clase hecha por Wilver Guzmán, corregida por Nicolás Nieto*/
+/*
+    Las clases BDD son distintas a las clases Modelo
+    Son la forma más simple de interacción con la BDD
+    Clases como TratamientoBDD son luego cambiadas a su versión Modelo (por sus hijas)
+*/
 import java.sql.Date;
 import java.sql.Time;
 
 public class TurnoBdd {
-   
-    
+    //Atributos
     private int idTurno,idPaciente,idOdontologo, idTratamiento;
     private Date fecha;
     private Time hora;
 
+    /*Métodos Constructores*/
     public TurnoBdd(int idTurno, int idPaciente, int idOdontologo, int idT, Date fecha, Time hora) {
         this.idTurno = idTurno;
         this.idPaciente = idPaciente;
@@ -29,8 +34,7 @@ public class TurnoBdd {
         this.hora = hora;
     }
 
-    
-
+    /*Getters y Setters*/
     public int getIdTurno() {
         return idTurno;
     }

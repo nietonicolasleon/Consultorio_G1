@@ -1,13 +1,14 @@
-
 package modelo;
 
+/*Hecha por Kiara Chunga*/
 public abstract class Persona {
+    //Atributos
    protected int id;
    protected String nombre;
    protected String apellido;
    protected String mail;
 
-
+    /*Métodos Constructores*/
     public Persona(int id, String nombre, String apellido, String mail) {
         this.id = id;
         this.nombre = nombre;
@@ -21,6 +22,7 @@ public abstract class Persona {
         this.mail = mail;
     }
 
+    /*Getters y Setters*/
     public int getId() {
         return id;
     }
@@ -53,6 +55,7 @@ public abstract class Persona {
         this.mail = mail;
     }
 
+    /*Método toString*/
     @Override
     public String toString() {
         return "id de Persona: " + this.id +"\n Nombre y apellido: " + this.nombre+" "+this.apellido+"\n email: "+this.mail;
