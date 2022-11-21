@@ -5,7 +5,10 @@ import java.util.Date;
 import static controlador.bdd.Conexion.*;
 import controlador.bdd.modelo.TurnoBdd;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import modelo.*;
 
 public class TurnoDAO {
     /*Se declaran los select, insert, update y delete*/
@@ -15,12 +18,16 @@ public class TurnoDAO {
     private static final String SQL_DELETE = "DELETE FROM turno WHERE idTurno = ?";
 
     /*Este método nos permite seleccionar un ArrayList de todos los Turnos de la BDD*/
-    public ArrayList<TurnoBdd> seleccionar() {
+    public ArrayList<Turno> seleccionar() {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         TurnoBdd turno = null;
-        ArrayList<TurnoBdd> turnos = new ArrayList();
+        ArrayList<TurnoBdd> turnosBdd = new ArrayList();
+        ArrayList<Turno> turnos = new ArrayList();
+        TratamientoDAO tratamentoDao = new TratamientoDAO();
+        PacienteDAO pacienteDao = new PacienteDAO();
+
 
         try {
             con = Conexion.getConnection();
@@ -34,7 +41,16 @@ public class TurnoDAO {
                 Date fecha = rs.getDate("fecha");
                 Time hora = rs.getTime("hora");
                 turno = new TurnoBdd(idTurno, idPaciente, idOdontologo, isTratamiento, fecha, hora);
-                turnos.add(turno);
+                turnosBdd.add(turno);
+            }
+            for (TurnoBdd turnoBdd : turnosBdd){
+                Tratamiento tratamiento = tratamentoDao.getTratamientoById(turnoBdd.getIdTratamiento()); //Creo el tratamiento desde la bdd
+                Paciente paciente = pacienteDao.getPacienteById(turnoBdd.getIdPaciente()); //creo el paciente desde la bdd
+                LocalDate fecha = turnoBdd.getFecha().toLocalDate(); //convierto la fecha de DATE SQL a LOCALDATE java
+                LocalTime duracion = LocalTime.of(0, 30) ; //la duracion es fija por defecto 30 m
+                LocalTime hInicio = turnoBdd.getHora().toLocalTime(); //convierto la hora de TIME SQL a LOCALTIME java
+                Turno turnoM= new Turno(turnoBdd.getIdTurno(), tratamiento, paciente, fecha, duracion, hInicio);
+                turnos.add(turnoM);
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -59,7 +75,7 @@ public class TurnoDAO {
         try {
             con = getConnection();
             stmt = con.prepareStatement(SQL_INSERT);
-            stmt.setInt(1, turno.getIdTurno());
+            stmt.setInt(1, turno.getIdTurno()); //HAY QUE RE ORGANIZAR EL CODIGO PARA QUE FUNCIONE CON EL WHERE EL ID
             stmt.setInt(2, turno.getIdPaciente());
             stmt.setInt(3, turno.getIdOdontologo());
             stmt.setInt(4, turno.getIdTratamiento());
@@ -135,6 +151,17 @@ public class TurnoDAO {
         
         return registros;
 }
+    
+    
+    /*Con este método podemos acceder a un Turno por su id*/
+    public Turno getTurnoById(int id ) {
+        for (Turno t: this.seleccionar()){
+            if(id == t.getId()){
+                return t;
+            }
+        }
+        return null;
+    }
     
     
 }

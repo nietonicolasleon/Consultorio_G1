@@ -47,7 +47,7 @@ public class registrar extends HttpServlet {
             Paciente attPaciente = pDAO.getPacienteByDni(paciente.getDni());
             out.print(attPaciente.getId());
             
-            //devolver el paciente a la pagina de reservaTurnos.jsp
+            //devolver el paciente a la pagina de reservaTratamiento.jsp
             request.setAttribute("attPaciente", attPaciente);
             request.getRequestDispatcher("/pages/reservaTratamiento.jsp").forward(request, response);
             

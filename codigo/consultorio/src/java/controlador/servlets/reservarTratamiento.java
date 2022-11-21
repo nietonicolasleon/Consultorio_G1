@@ -36,21 +36,21 @@ public class reservarTratamiento extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            //recupero los datos del get y los desestructuro
-            out.print("ENTROO");
             
+            //recupero los datos del get que vienen separados por , y los desestructuro utilizando el split
             String[] date = request.getParameter("date").split(",");
             int idPaciente = Integer.parseInt(date[0]);
             int idTratamiento = Integer.parseInt(date[1]);
             
+            //creo al paciente solicitandolo desde la bdd
             PacienteDAO pDAO = new PacienteDAO();
             Paciente attPaciente = pDAO.getPacienteById(idPaciente);
             
-            //Codig para solicitar el tratamiento
+            //creo al Tratamiento solicitandolo desde la bdd
             TratamientoDAO tDAO = new TratamientoDAO();
             Tratamiento attTratamiento = tDAO.getTratamientoById(idTratamiento);
             
-            
+            //setea los atributos para recuperarlos en la patalla reservaTurnos
             request.setAttribute("attPaciente", attPaciente);
             request.setAttribute("attTratamiento", attTratamiento);
             request.getRequestDispatcher("/pages/reservaTurnos.jsp").forward(request, response);
